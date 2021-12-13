@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react"
 import { getProfile } from "./ProfileManager.js"
-import "./Profile.css"
+// import "./Profile.css"
 
 
 // needs refactored to SecureLife
