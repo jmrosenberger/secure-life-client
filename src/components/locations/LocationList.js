@@ -3,6 +3,7 @@ import { Link, useHistory, useParams } from "react-router-dom"
 import { getLocations, deleteLocation, getLocation } from "./LocationManager.js"
 import { confirmAlert } from "react-confirm-alert"
 // import "../ReactConfirmAlert.css"
+import './Locations.css'
 
 export const LocationList = (props) => {
     const history = useHistory()
@@ -55,7 +56,7 @@ export const LocationList = (props) => {
                     return <section key={`location--${location.id}`} className="location">
                         <div className="location__city">Name of City: {location?.city.name}</div>
                         <div className="location__park">Name of Park: {location?.park.name}</div>
-                        <Link to={`locations/edit/${location.id}`}>Edit location</Link>
+                        <Link to={`locations/edit/${location.id} className="link__edit"`}>Edit location</Link>
                         <button className="btn__delete"
                             onClick={() => {
                                 confirmDelete(location.id)
