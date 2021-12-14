@@ -1,0 +1,15 @@
+.location {
+    display: flex;
+    flex-direction: column;
+    width: 25%;
+    border: 2px solid lightcoral;
+    border-radius: 8px;
+    padding: 1rem;
+    margin: 1rem 0;
+    background-color: rgba(0, 255, 255, 0.428);
+    color: rgb(251, 79, 79);
+}
+
+.btn__delete {
+    width: 25%;
+}

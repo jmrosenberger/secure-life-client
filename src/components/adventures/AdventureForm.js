@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react"
 import { useHistory, useParams } from 'react-router-dom'
+import Select from "react-dropdown-select"
 import { createAdventure, getAdventure, updateAdventure } from './AdventureManager.js'
 // import "./Games.css"
 
@@ -23,17 +24,17 @@ export const AdventureForm = () => {
         } else {
             setCurrentAdventure({
                 title: "",
-                human: "",
                 date: Date(),
+                participants: [],
                 description: ""
             })
         }
     }
-    console.log(currentAdventure)
 
     useEffect(() => {
         getAdventureToEdit()
     }, [adventureId])
+    
 
     const changeAdventureState = (event) => {
         const newAdventureState = { ...currentAdventure }
@@ -48,25 +49,25 @@ export const AdventureForm = () => {
                 <div className="form-group">
                     <label htmlFor="title">Title: </label>
                     <input type="text" name="title" required autoFocus className="form-control"
-                        value={currentAdventure?.title}
+                        value={currentAdventure.title}
                         onChange={changeAdventureState}
                     />
                 </div>
             </fieldset>
-            <fieldset>
+            {/* <fieldset>
                 <div className="form-group">
                     <label htmlFor="human">Human: </label>
                     <input type="text" name="human" required autoFocus className="form-control"
-                        value={currentAdventure?.human}
+                        value={currentAdventure.human}
                         onChange={changeAdventureState}
                     />
                 </div>
-            </fieldset>
+            </fieldset> */}
             <fieldset>
                 <div className="form-group">
                     <label htmlFor="date">Date: </label>
                     <input type="date" name="date" required className="form-control"
-                        value={currentAdventure?.date}
+                        value={currentAdventure.date}
                         onChange={changeAdventureState}
                         id="date"
                         placeholder="Choose A Date"
@@ -75,47 +76,57 @@ export const AdventureForm = () => {
             </fieldset>
             <fieldset>
                 <div className="form-group">
-                    <label htmlFor="description">Description: </label>
-                    <input type="text" name="description" required autoFocus className="form-control"
-                        value={currentAdventure?.description}
-                        onChange={changeAdventureState}
-                    />
-                </div>
-            </fieldset>
-            {/* <fieldset>
-                <div className="form-group">
-                    <label htmlFor="gameType">Game Type: </label>
-                    <select name="gameTypeId" placeholder="Select Game Type" className="form-control"
+                    {/* <form>
+                        <Select
+                            options={currentAdventure?.participants}
+                            values={[currentAdventure?.participants]}
+                            required
+                            multi
+                            name="select"
+                            onChange={changeAdventureState}
+                        />
+                        <button>Send</button>
+                    </form> */}
+                    <fieldset>
+                        <div className="form-group">
+                            <label htmlFor="description">Description: </label>
+                            <input type="text" name="description" required autoFocus className="form-control"
+                                value={currentAdventure.description}
+                                onChange={changeAdventureState}
+                            />
+                        </div>
+                    </fieldset>
+                    {/* <Select name="participants" options={options} placeholder="Select Participant" className="form-control"
                         value={currentGame.gameTypeId}
-                        onChange={changeGameState}>
-                        <option value="0" disabled>Select Game Type</option>
+                        onChange={changeGameState}
+                        options={value="0"}
                         {
                             gameTypes.map(
                                 (gameType) => {
                                     return <option name="gameTypeId" value={gameType.id}>{gameType.label}</option>
                                 })
                         }
-                    </select>
+                    /> */}
                 </div>
-            </fieldset> */}
+            </fieldset>
             <button onClick={(event) => {
                 event.preventDefault()
 
                 const adventure = {
                     title: currentAdventure.title,
-                    human: currentAdventure.human,
                     date: currentAdventure.date,
+                    participants: currentAdventure.participants,
                     description: currentAdventure.description
                 }
                 {
-                    editMode ? 
+                    editMode ?
                         updateAdventure(adventure, adventureId)
-                            .then(() => {history.push('/adventures')})
+                            .then(() => { history.push('/adventures') })
                         : createAdventure(adventure)
-                            .then(() => {history.push('/adventures')})
+                            .then(() => { history.push('/adventures') })
                 }
             }}
-            className="btn btn-primary">Save Adventure</button>
+                className="btn btn-primary">Save Adventure</button>
         </form>
     )
 }

@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react"
 import { Link, useHistory, useParams } from "react-router-dom"
 import { getAdventures, deleteAdventure, getAdventure } from "./AdventureManager.js"
 import { confirmAlert } from "react-confirm-alert"
-// import "../ReactConfirmAlert.css"
+import "../react-confirm-alert.css"
 
 
 export const AdventureDetail = () => {
@@ -12,7 +12,7 @@ export const AdventureDetail = () => {
     // const [adventures, setAdventures] = useState([])
 
     useEffect(() => {
-        getAdventure()
+        getAdventure(adventureId)
             .then(data => setAdventure(data))
     }, [adventureId])
 
@@ -46,17 +46,16 @@ export const AdventureDetail = () => {
     return (
         <>
             <h2>Adventure Details</h2>
-            {/* <button className="btn-2 btn-sep icon-create"
-                onClick={() => {
-                    history.push({ pathname: "/adventures/new" })
-                }}
-            >Create New Adventure</button> */}
             <section key={`adventure--${adventure?.id}`} className="adventure">
                 <div className="adventure__title">{adventure?.title}</div>
                 <div className="adventure__date">Date: {adventure?.date}</div>
-                <div className="adventure__participants">Participants: {adventure?.human_id}</div>
+                <div className="adventure__participants">Participants: *(THIS SECTION SHOULD RETURN A LIST OF HUMANS RENDERED FROM FORM) {adventure?.human_id}</div>
                 <div className="adventure__description">Description: {adventure?.description}</div>
-                <Link to={`adventures/${adventure?.id}/edit`}>Edit Adventure</Link>
+                <div className="adventure__images">IMAGES: NEED TO ADD IMAGES (LINK OR CAROUSEL)...</div>
+                <button className="btn__edit"
+                    onClick={() => {
+                        history.push({ pathname: `/adventures/edit/${adventure.id}`})
+                    }}>Edit Adventure</button>
                 <button className="btn__delete"
                     onClick={() => {
                         confirmDelete(adventure.id)
