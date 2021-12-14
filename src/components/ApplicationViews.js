@@ -1,8 +1,8 @@
 import React from "react"
 import { Route } from "react-router-dom"
-// import { LocationForm } from "./locations/LocationForm.js"
-// import { LocationList } from "./locations/LocationList.js"
-// import { LocationDetail } from "./locations/LocationDetail.js"
+import { LocationForm } from "./locations/LocationForm.js"
+import { LocationList } from "./locations/LocationList.js"
+import { LocationDetail } from "./locations/LocationDetail.js"
 // import { GrowthForm } from "./growth/GrowthForm.js"
 // import { GrowthList } from "./growth/GrowthDetail.js"
 // import { GrowthDetail } from "./growth/GrowthDetail.js"
@@ -21,16 +21,16 @@ export const ApplicationViews = () => {
             margin: "5rem 2rem",
             lineHeight: "1.75rem"
         }}>
-            {/* <Route exact path="/locations/new">
+            <Route exact path="/locations/new">
                 <LocationForm />
             </Route>
             <Route exact path="/locations">
                 <LocationList />
             </Route>
             <Route exact path="/locations/edit/:locationId(\d+)">
-                <LocationDetail />
+                <LocationForm />
             </Route>
-            <Route exact path="/growth/new">
+            {/* <Route exact path="/growth/new">
                 <GrowthForm />
             </Route>
             <Route exact path="/growth">
