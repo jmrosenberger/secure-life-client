@@ -5,15 +5,10 @@ import { createAdventure, getAdventure, updateAdventure } from './AdventureManag
 
 export const AdventureForm = () => {
     const history = useHistory()
-    // const [gameTypes, setGameTypes] = useState([])
     const [currentAdventure, setCurrentAdventure] = useState({})
     const [editMode, toggleEditMode] = useState(false)
     const { adventureId } = useParams()
 
-    // useEffect(() => {
-    //     getGameTypes()
-    //         .then(data => setGameTypes(data))
-    // }, [])
 
     const getAdventureToEdit = () => {
         if (adventureId) {
@@ -28,7 +23,7 @@ export const AdventureForm = () => {
         } else {
             setCurrentAdventure({
                 title: "",
-                human: parseInt(localStorage.getItem("sl_token")),
+                human: "",
                 date: Date(),
                 description: ""
             })
@@ -48,7 +43,7 @@ export const AdventureForm = () => {
 
     return (
         <form className="adventureForm">
-            <h2 className="adventureForm__title">Create New Adventure</h2>
+            <h2 className="adventureForm__title">Adventure Details</h2>
             <fieldset>
                 <div className="form-group">
                     <label htmlFor="title">Title: </label>
@@ -82,7 +77,7 @@ export const AdventureForm = () => {
                 <div className="form-group">
                     <label htmlFor="description">Description: </label>
                     <input type="text" name="description" required autoFocus className="form-control"
-                        value={currentAdventure.description}
+                        value={currentAdventure?.description}
                         onChange={changeAdventureState}
                     />
                 </div>
@@ -109,8 +104,8 @@ export const AdventureForm = () => {
                 const adventure = {
                     title: currentAdventure.title,
                     human: currentAdventure.human,
-                    date: parseInt(currentAdventure.date),
-                    description: parseInt(currentAdventure.description)
+                    date: currentAdventure.date,
+                    description: currentAdventure.description
                 }
                 {
                     editMode ? 

@@ -53,10 +53,10 @@ export const AdventureList = (props) => {
             {
                 adventures.map(adventure => {
                     return <section key={`adventure--${adventure.id}`} className="adventure">
-                        <div className="adventure__title">{adventure.title}</div>
-                        <div className="adventure__human">Adventure Created By: {adventure.human}</div>
-                        <div className="adventure__date">Date: {adventure.date}</div>
-                        <div className="adventure__description">Description: {adventure.description}</div>
+                        <div className="adventure__title">{adventure?.title}</div>
+                        <div className="adventure__human">Adventure Created By: {adventure?.human_id.username}</div>
+                        <div className="adventure__date">Date: {adventure?.date}</div>
+                        <div className="adventure__description">Description: {adventure?.description}</div>
                         <Link to={`adventures/edit/${adventure.id}`}>Edit Adventure</Link>
                         <button className="btn__delete"
                             onClick={() => {
