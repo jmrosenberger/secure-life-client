@@ -46,7 +46,7 @@ export const ApplicationViews = () => {
                 <AdventureList />
             </Route>
             <Route exact path="/adventures/edit/:adventureId(\d+)">
-                <AdventureDetail />
+                <AdventureForm />
             </Route>
             {/* <Route exact path="/daily_entries/new">
                 <DailyEntryForm />
