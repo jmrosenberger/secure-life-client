@@ -56,11 +56,7 @@ export const LocationList = (props) => {
                     return <section key={`location--${location.id}`} className="location">
                         <div className="location__city">Name of City: {location?.city}</div>
                         <div className="location__park">Name of Park: {location?.park}</div>
-                        <Link to={`locations/edit/${location.id} className="link__edit"`}>Edit location</Link>
-                        <button className="btn__delete"
-                            onClick={() => {
-                                confirmDelete(location.id)
-                            }}>Delete Location</button>
+                        <Link to={`locations/details/${location.id}`}>Location Details</Link>
                     </section>
 
                 }).reverse()
