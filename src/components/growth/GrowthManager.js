@@ -16,6 +16,24 @@ export const getGrowth = (growthId) => {
         .then(res => res.json())
 }
 
+export const getHumans = () => {
+    return fetch("http://localhost:8000/humans", {
+        headers:{
+            "Authorization": `Token ${localStorage.getItem("sl_token")}`
+        }
+    })
+        .then(response => response.json())
+}
+
+export const getHuman = (humanId) => {
+    return fetch(`http://localhost:8000/humans/${humanId}`, {
+        headers:{
+            "Authorization": `Token ${localStorage.getItem("sl_token")}`,
+        }
+    })
+        .then(res => res.json())
+}
+
 export const createGrowth = (growth) => {
     return fetch("http://localhost:8000/growth", {
         method: "POST",
@@ -37,15 +55,6 @@ export const updateGrowth = (growth, growthId) => {
         },
         body: JSON.stringify(growth)
     })
-}
-
-export const getGrowthTypes = () => {
-    return fetch("http://localhost:8000/growthtypes", { 
-        headers:{
-            "Authorization": `Token ${localStorage.getItem("sl_token")}`
-        }
-    })
-        .then(response => response.json())
 }
 
 export const deleteGrowth = (id) => {

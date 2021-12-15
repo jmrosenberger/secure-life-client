@@ -3,9 +3,9 @@ import { Route } from "react-router-dom"
 import { LocationForm } from "./locations/LocationForm.js"
 import { LocationList } from "./locations/LocationList.js"
 import { LocationDetail } from "./locations/LocationDetail.js"
-// import { GrowthForm } from "./growth/GrowthForm.js"
-// import { GrowthList } from "./growth/GrowthDetail.js"
-// import { GrowthDetail } from "./growth/GrowthDetail.js"
+import { GrowthForm } from "./growth/GrowthForm.js"
+import { GrowthList } from "./growth/GrowthList.js"
+import { GrowthDetail } from "./growth/GrowthDetails.js"
 import { AdventureForm } from "./adventures/AdventureForm.js"
 import { AdventureList } from "./adventures/AdventureList.js"
 import { AdventureDetail } from "./adventures/AdventureDetail.js"
@@ -33,15 +33,18 @@ export const ApplicationViews = () => {
             <Route exact path="/locations/details/:locationId(\d+)">
                 <LocationDetail />
             </Route>
-            {/* <Route exact path="/growth/new">
+            <Route exact path="/growth/new">
                 <GrowthForm />
             </Route>
             <Route exact path="/growth">
                 <GrowthList />
             </Route>
             <Route exact path="/growth/edit/:growthId(\d+)">
+                <GrowthForm />
+            </Route>
+            <Route exact path="/growth/details/:growthId(\d+)">
                 <GrowthDetail />
-            </Route> */}
+            </Route>
             <Route exact path="/adventures/new">
                 <AdventureForm />
             </Route>

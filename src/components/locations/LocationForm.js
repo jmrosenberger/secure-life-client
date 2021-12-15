@@ -15,9 +15,6 @@ export const LocationForm = () => {
             getLocation(locationId)
                 .then(locationData => setCurrentLocation({
                     ...locationData
-                    // skillLevel: adventureData.skill_level,
-                    // numberOfPlayers: adventureData.number_of_players,
-                    // gameTypeId: adventureData.game_type.id
                 }))
         } else {
             setCurrentLocation({
@@ -59,42 +56,6 @@ export const LocationForm = () => {
                     />
                 </div>
             </fieldset>
-            {/* <fieldset>
-                <div className="form-group">
-                    <label htmlFor="date">Date: </label>
-                    <input type="date" name="date" required className="form-control"
-                        value={currentLocation?.date}
-                        onChange={changeLocationState}
-                        id="date"
-                        placeholder="Choose A Date"
-                    />
-                </div>
-            </fieldset>
-            <fieldset>
-                <div className="form-group">
-                    <label htmlFor="description">Description: </label>
-                    <input type="text" name="description" required autoFocus className="form-control"
-                        value={currentLocation?.description}
-                        onChange={changeLocationState}
-                    />
-                </div>
-            </fieldset> */}
-            {/* <fieldset>
-                <div className="form-group">
-                    <label htmlFor="gameType">Game Type: </label>
-                    <select name="gameTypeId" placeholder="Select Game Type" className="form-control"
-                        value={currentGame.gameTypeId}
-                        onChange={changeGameState}>
-                        <option value="0" disabled>Select Game Type</option>
-                        {
-                            gameTypes.map(
-                                (gameType) => {
-                                    return <option name="gameTypeId" value={gameType.id}>{gameType.label}</option>
-                                })
-                        }
-                    </select>
-                </div>
-            </fieldset> */}
             <button onClick={(event) => {
                 event.preventDefault()
 
