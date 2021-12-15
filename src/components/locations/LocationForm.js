@@ -21,8 +21,8 @@ export const LocationForm = () => {
                 }))
         } else {
             setCurrentLocation({
-                city: 0,
-                park: 0
+                city: "",
+                park: ""
             })
         }
     }
@@ -45,7 +45,7 @@ export const LocationForm = () => {
                 <div className="form-group">
                     <label htmlFor="city">City Name: </label>
                     <input type="text" name="city" required autoFocus className="form-control"
-                        value={currentLocation?.city?.name}
+                        value={currentLocation?.city}
                         onChange={changeLocationState}
                     />
                 </div>
@@ -54,7 +54,7 @@ export const LocationForm = () => {
                 <div className="form-group">
                     <label htmlFor="park">Park Name: </label>
                     <input type="text" name="park" required autoFocus className="form-control"
-                        value={currentLocation?.park?.name}
+                        value={currentLocation?.park}
                         onChange={changeLocationState}
                     />
                 </div>
