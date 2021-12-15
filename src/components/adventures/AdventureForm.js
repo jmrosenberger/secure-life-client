@@ -9,7 +9,7 @@ export const AdventureForm = () => {
     const [currentAdventure, setCurrentAdventure] = useState({})
     const [editMode, toggleEditMode] = useState(false)
     const { adventureId } = useParams()
-
+   
 
     const getAdventureToEdit = () => {
         if (adventureId) {
@@ -76,17 +76,17 @@ export const AdventureForm = () => {
             </fieldset>
             <fieldset>
                 <div className="form-group">
-                    {/* <form>
+                    <form>
                         <Select
-                            options={currentAdventure?.participants}
-                            values={[currentAdventure?.participants]}
+                            options={[]}
+                            values={[]}
                             required
                             multi
                             name="select"
                             onChange={changeAdventureState}
                         />
                         <button>Send</button>
-                    </form> */}
+                    </form>
                     <fieldset>
                         <div className="form-group">
                             <label htmlFor="description">Description: </label>
