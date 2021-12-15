@@ -1,8 +1,6 @@
 import React, { useEffect, useState } from "react"
 import { Link, useHistory, useParams } from "react-router-dom"
-import { getAdventures, deleteAdventure, getAdventure } from "./AdventureManager.js"
-import { confirmAlert } from "react-confirm-alert"
-// import "../ReactConfirmAlert.css"
+import { getAdventures } from "./AdventureManager.js"
 import './Adventures.css'
 
 export const AdventureList = (props) => {
@@ -15,32 +13,6 @@ export const AdventureList = (props) => {
             .then(data => setAdventures(data))
     }, [])
 
-    const deleteSingleAdventure = (adventureId) => {
-        deleteAdventure(adventureId)
-            .then(() => {
-                getAdventures()
-                    .then((adventureList) => {
-                        setAdventures(adventureList)
-                    })
-            })
-            .then(history.push({ pathname: "/adventures" }))
-    }
-
-    const confirmDelete = (id) => {
-        confirmAlert({
-            message: 'Are you sure you want to DELETE this adventure?',
-            buttons: [
-                {
-                    label: 'Yes',
-                    onClick: () => { deleteSingleAdventure(id) }
-                },
-                {
-                    label: 'No',
-                    onClick: () => alert("Click No if you can't make up your mind")
-                }
-            ]
-        })
-    }
 
     return (
         <article className="adventures">
