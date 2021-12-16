@@ -39,15 +39,6 @@ export const updateAdventure = (adventure, adventureId) => {
     })
 }
 
-// export const getAdventureTypes = () => {
-//     return fetch("http://localhost:8000/adventuretypes", { 
-//         headers:{
-//             "Authorization": `Token ${localStorage.getItem("sl_token")}`
-//         }
-//     })
-//         .then(response => response.json())
-// }
-
 export const deleteAdventure = (id) => {
     return fetch(`http://localhost:8000/adventures/${id}`, {
         method: "DELETE",
@@ -55,4 +46,24 @@ export const deleteAdventure = (id) => {
             "Authorization": `Token ${localStorage.getItem("sl_token")}`
         }
     })
+}
+
+export const uploadAdventureImage = (image) => {
+    return fetch("http://localhost:8000/images", {
+        method: "POST",
+        headers: {
+            "Authorization": `Token ${localStorage.getItem("sl_token")}`,
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify(image)
+    })
+}
+
+export const getAdventureImages = (adventureId) => {
+    return fetch(`http://localhost:8000/images?adventureId=${adventureId}`, {
+        headers: {
+            "Authorization": `Token ${localStorage.getItem("sl_token")}`
+        }
+    })
+        .then(res => res.json())
 }
