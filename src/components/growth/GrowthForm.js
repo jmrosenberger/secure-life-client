@@ -69,7 +69,16 @@ export const GrowthForm = () => {
             </fieldset>
             <fieldset>
                 <div className="form-group">
-                    <label htmlFor="height">Height: </label>
+                    <label htmlFor="age">Age in Months: </label>
+                    <input type="number" name="age" required autoFocus className="form-control"
+                        value={currentGrowth.age}
+                        onChange={changeGrowthState}
+                    />
+                </div>
+            </fieldset>
+            <fieldset>
+                <div className="form-group">
+                    <label htmlFor="height">Height in inches: </label>
                     <input type="number" name="height" required autoFocus className="form-control"
                         value={currentGrowth.height}
                         onChange={changeGrowthState}
@@ -78,7 +87,7 @@ export const GrowthForm = () => {
             </fieldset>
             <fieldset>
                 <div className="form-group">
-                    <label htmlFor="weight">Weight: </label>
+                    <label htmlFor="weight">Weight in lbs: </label>
                     <input type="number" name="weight" required autoFocus className="form-control"
                         value={currentGrowth.weight}
                         onChange={changeGrowthState}
@@ -87,7 +96,7 @@ export const GrowthForm = () => {
             </fieldset>
             <fieldset>
                 <div className="form-group">
-                    <label htmlFor="length">Length: </label>
+                    <label htmlFor="length">Length in inches: </label>
                     <input type="number" name="length" required autoFocus className="form-control"
                         value={currentGrowth.length}
                         onChange={changeGrowthState}
@@ -121,6 +130,7 @@ export const GrowthForm = () => {
 
                 const growth = {
                     human: currentGrowth.human,
+                    age: currentGrowth.age,
                     height: currentGrowth.height,
                     weight: currentGrowth.weight,
                     length: currentGrowth.length,
