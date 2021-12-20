@@ -44,6 +44,7 @@ export const GrowthForm = () => {
         const newGrowthState = { ...currentGrowth }
         newGrowthState[event.target.name] = event.target.value
         setCurrentGrowth(newGrowthState)
+        console.log(newGrowthState)
     }
 
     return (
@@ -53,7 +54,7 @@ export const GrowthForm = () => {
                 <div className="form-group">
                     <label htmlFor="name">Name: </label>
                     <select name="human" placeholder="Select Name" defaultValue={0} className="form-control"
-                        value={currentGrowth?.human?.id}
+                        value={currentGrowth?.human?.name}
                         onChange={changeGrowthState}>
                         <option value="0" disabled>Select Name</option>
                         {
