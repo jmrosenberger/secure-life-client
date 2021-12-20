@@ -82,6 +82,7 @@ export const GrowthDetail = () => {
                 <div className="growth__weight">Weight: {growth?.weight}</div>
                 <div className="growth__length">Length: {growth?.length}</div>
                 <div className="growth__date">Date: {growth?.date}</div>
+                <div className="growth__notes">Notes: {growth?.notes}</div>
                 <div className="adventure__images">
                     <h3>Pictures of Growth</h3>
                     <div className="growthImages">

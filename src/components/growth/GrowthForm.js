@@ -30,7 +30,8 @@ export const GrowthForm = () => {
                 height: 0,
                 weight: 0,
                 length: 0,
-                date: Date()
+                date: Date(),
+                notes: ""
             })
         }
     }
@@ -104,6 +105,17 @@ export const GrowthForm = () => {
                     />
                 </div>
             </fieldset>
+            <fieldset>
+                <div className="form-group">
+                    <label htmlFor="notes">Notes: </label>
+                    <input type="textarea" name="notes" required className="form-control"
+                        value={currentGrowth.notes}
+                        onChange={changeGrowthState}
+                        id="notes"
+                        placeholder="Add entry notes here..."
+                    />
+                </div>
+            </fieldset>
             <button onClick={(event) => {
                 event.preventDefault()
 
@@ -112,7 +124,8 @@ export const GrowthForm = () => {
                     height: currentGrowth.height,
                     weight: currentGrowth.weight,
                     length: currentGrowth.length,
-                    date: currentGrowth.date
+                    date: currentGrowth.date,
+                    notes: currentGrowth.notes
                 }
                 {
                     editMode ?
