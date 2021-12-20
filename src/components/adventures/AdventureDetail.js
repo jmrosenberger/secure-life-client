@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react"
-import { Link, useHistory, useParams } from "react-router-dom"
+import { useHistory, useParams } from "react-router-dom"
 import { getAdventureImages, uploadAdventureImage, deleteAdventure, getAdventure } from "./AdventureManager.js"
 import { confirmAlert } from "react-confirm-alert"
 import "../react-confirm-alert.css"
@@ -11,7 +11,6 @@ export const AdventureDetail = () => {
     const history = useHistory()
     const [adventureImage, setAdventureImage] = useState("")
     const [adventureImages, setAdventureImages] = useState([])
-
 
     useEffect(() => {
         if (adventureId) {
@@ -86,7 +85,7 @@ export const AdventureDetail = () => {
                         {adventureImages?.map(img => {
                             return <>
                                 <div className="adventureImage">
-                                    <img src={img?.action_pic} width="25%" alt={`adventure-${img?.action_pic}`} />
+                                    <img src={img?.action_pic} width="40%" alt={`adventure-${img?.action_pic}`} />
                                 </div>
                             </>
                         })}

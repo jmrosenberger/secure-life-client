@@ -65,3 +65,23 @@ export const deleteGrowth = (id) => {
         }
     })
 }
+
+export const uploadGrowthImage = (image) => {
+    return fetch("http://localhost:8000/growthimages", {
+        method: "POST",
+        headers: {
+            "Authorization": `Token ${localStorage.getItem("sl_token")}`,
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify(image)
+    })
+}
+
+export const getGrowthImages = (growthId) => {
+    return fetch(`http://localhost:8000/growthimages?growthId=${growthId}`, {
+        headers: {
+            "Authorization": `Token ${localStorage.getItem("sl_token")}`
+        }
+    })
+        .then(res => res.json())
+}
