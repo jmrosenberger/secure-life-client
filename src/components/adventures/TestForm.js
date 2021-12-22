@@ -1,7 +1,5 @@
 import React, { useState, useEffect } from "react"
 import { useHistory, useParams } from 'react-router-dom'
-import Select from "react-select"
-import makeAnimated from 'react-select/animated'
 import { createAdventure, getAdventure, updateAdventure } from './AdventureManager.js'
 import { getHumans } from '../growth/GrowthManager.js'
 
@@ -12,7 +10,7 @@ export const TestForm = () => {
     const { adventureId } = useParams()
     const [humans, setHumans] = useState([])
     const [participants, setParticipants] = useState([])
-    const [participant, setParticipant] = useState({})
+    
 
     useEffect(() => {
         getHumans()
@@ -26,10 +24,14 @@ export const TestForm = () => {
         if (adventureId) {
             toggleEditMode(true)
             getAdventure(adventureId)
-                .then(adventureData => setCurrentAdventure({
-                    ...adventureData
-                }))
-        } else {
+                .then(adventureData => {
+                    setCurrentAdventure(adventureData)
+                    let array = []
+                    for(const participant of adventureData.participants) {
+                        array.push(participant.id)
+                    }
+                    setParticipants(array)
+        })} else {
             setCurrentAdventure({
                 title: "",
                 date: Date(),
@@ -43,11 +45,6 @@ export const TestForm = () => {
         getAdventureToEdit()
     }, [adventureId])
 
-    const updateParticipants = (event) => {
-        const newParticipant = { ...currentAdventure }
-        newParticipant[event.target.name] = event.target.value
-        setParticipant(newParticipant)
-    }
 
     const changeAdventureState = (event) => {
         const newAdventureState = { ...currentAdventure }
@@ -55,23 +52,21 @@ export const TestForm = () => {
         setCurrentAdventure(newAdventureState)
     }
 
+    const updateParticipants = (event) => {
+        const participantsArray = [ ...participants ]
+        const value = parseInt(event.target.value)
 
-    console.log(participants)
+        if (participantsArray.includes(value)){
+            const index = participantsArray.indexOf(value)
+            participantsArray.splice(index, 1)
+        } else {
+            participantsArray.push(value)
+        }
+        setParticipants(participantsArray)
+    }
 
-    // const handleChange = (event) => {
-    //     let participants = event.target.options
-    //     let value = []
-    //     for (let i = 0, l = participants.length; i < l; i++) {
-    //         if (participants[i].selected) {
-    //             value.push(participants[i].value)
-    //         }
-    //     }
-    //     setParticipants(value)
-    // }
+console.log(participants)
 
-    // console.log(participants)
-    console.log(currentAdventure)
-    console.log(currentAdventure.participants)
     return (
         <form className="adventureForm">
             <h2 className="adventureForm__title">Adventure Details</h2>
@@ -97,19 +92,20 @@ export const TestForm = () => {
             </fieldset>
             <fieldset>
                 <div className="form-group">
-                    <label htmlFor="participants">Participants: </label>
-                    <select name="participants" placeholder="Select Participant" className="form-control"
-                        value={currentAdventure.participants}
-                        multiple
-                        onChange={updateParticipants, changeAdventureState}>
-                        <option defaultValue="0" >Select Participant</option>
-                        {
-                            humans.map(
-                                (human) => {
-                                    return <option name="participants" id={human.id} value={human.name}>{human.name}</option>
-                                })
-                        }
-                    </select>
+                    {
+                        humans.map(
+                            (human) => {
+                                return <div><label htmlFor={`participants--${human.id}`}>{human.name}</label>
+                                    <input type="checkbox" name={`participants--${human.id}`} autoFocus className="form-control"
+                                        value={human.id}
+                                        checked={participants.includes(human.id)}
+                                        key={human.id}
+                                        onChange={updateParticipants}
+                                    />
+                                </div>
+                            }
+                        )
+                    }
                 </div>
             </fieldset>
             <fieldset>
@@ -127,7 +123,7 @@ export const TestForm = () => {
                 const adventure = {
                     title: currentAdventure.title,
                     date: currentAdventure.date,
-                    participants: currentAdventure.participants,
+                    participants: participants,
                     description: currentAdventure.description
                 }
                 {

@@ -71,13 +71,18 @@ export const AdventureDetail = () => {
             .then(getImages)
     }
 
+    console.log(adventure)
+
     return (
         <>
             <h2>Adventure Details</h2>
             <section key={`adventure--${adventure?.id}`} className="adventure">
                 <div className="adventure__title">{adventure?.title}</div>
                 <div className="adventure__date">Date: {adventure?.date}</div>
-                <div className="adventure__participants">Participants: *(THIS SECTION SHOULD RETURN A LIST OF HUMANS RENDERED FROM FORM) {adventure?.human_id}</div>
+                <div className="adventure__participants">Participants: {
+                    adventure?.participants?.map(participant => {
+                        return participant.name
+                    }).join(", ")}</div>
                 <div className="adventure__description">Description: {adventure?.description}</div>
                 <div className="adventure__images">
                     <h3>Adventure Images</h3>
@@ -102,6 +107,10 @@ export const AdventureDetail = () => {
                     onClick={() => {
                         confirmDelete(adventure.id)
                     }}>Delete Adventure</button>
+                <button className="btn__edit"
+                    onClick={() => {
+                        history.push({ pathname: `/adventures` })
+                    }}>Return to Adventures List</button>
             </section>
 
 

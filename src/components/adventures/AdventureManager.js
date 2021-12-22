@@ -7,6 +7,15 @@ export const getAdventures = () => {
         .then(response => response.json())
 }
 
+// export const getParticipants = () => {
+//     return fetch("http://localhost:8000/adventures", {
+//         headers:{
+//             "Authorization": `Token ${localStorage.getItem("sl_token")}`
+//         }
+//     })
+//         .then(response => response.json())
+// }
+
 export const getAdventure = (adventureId) => {
     return fetch(`http://localhost:8000/adventures/${adventureId}`, {
         headers:{
