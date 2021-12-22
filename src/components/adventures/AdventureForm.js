@@ -1,7 +1,5 @@
 import React, { useState, useEffect } from "react"
 import { useHistory, useParams } from 'react-router-dom'
-import Select from "react-dropdown-select"
-import { LiveProvider, LiveEditor, LiveError, LivePreview } from "react-live"
 import { createAdventure, getAdventure, updateAdventure } from './AdventureManager.js'
 import { getHumans } from '../growth/GrowthManager.js'
 
@@ -11,6 +9,7 @@ export const AdventureForm = () => {
     const [editMode, toggleEditMode] = useState(false)
     const { adventureId } = useParams()
     const [humans, setHumans] = useState([])
+    const [participants, setParticipants] = useState([])
 
     useEffect(() => {
         getHumans()
@@ -18,7 +17,7 @@ export const AdventureForm = () => {
     },
         [])
 
-    console.log(humans)
+    // console.log(humans)
 
     const getAdventureToEdit = () => {
         if (adventureId) {
@@ -48,6 +47,27 @@ export const AdventureForm = () => {
         setCurrentAdventure(newAdventureState)
     }
 
+    // const updateParticipants = (event) => {
+    //     const newAdventureState = { ...currentAdventure }
+    //     newAdventureState.participants = event.target.checked
+    //     setCurrentAdventure(newAdventureState)
+    // }
+
+    const updateParticipants = (event) => {
+        const participantsArray = [ ...participants ]
+        
+        // have to make a checker function... isChecked: boolean
+        // if value of what is checked is already in array... remove it (splice)
+        // if not in the array... push into the array
+        // parseInt 
+        participantsArray.push(event.target.value)
+        setParticipants(participantsArray)
+    }
+
+    currentAdventure.participants = participants
+
+console.log(participants)
+
     return (
         <form className="adventureForm">
             <h2 className="adventureForm__title">Adventure Details</h2>
@@ -73,34 +93,18 @@ export const AdventureForm = () => {
             </fieldset>
             <fieldset>
                 <div className="form-group">
-                    {/* { Form } */}
-                    <React.Fragment>
-                        <LiveProvider code="<strong>Hello World</strong>">
-                            <LiveEditor />
-                            <LiveError />
-                            <LivePreview />
-                        </LiveProvider>
-                    </React.Fragment>
-                    <React.Fragment>
-
-                        <form>
-                            <label htmlFor="participants">Participants:</label>
-                            <Select
-                                name="select"
-                                options={
-                                    humans.map(
-                                        (human) => {
-                                            return human.name
-                                        })
-                                }
-                                values={[]}
-                                required
-                                multi
-                                onChange={(value) => console.log(value)}
-                            />
-                            <button>Send</button>
-                        </form>
-                    </React.Fragment>
+                    {
+                        humans.map(
+                            (human) => {
+                                return <div><label htmlFor={`participants--${human.id}`}>{human.name}</label>
+                                    <input type="checkbox" name={`participants--${human.id}`} required autoFocus className="form-control"
+                                        value={human.id}
+                                        onChange={updateParticipants}
+                                    />
+                                </div>
+                            }
+                        )
+                    }
                 </div>
             </fieldset>
             <fieldset>
@@ -118,7 +122,7 @@ export const AdventureForm = () => {
                 const adventure = {
                     title: currentAdventure.title,
                     date: currentAdventure.date,
-                    participants: currentAdventure.participants,
+                    participants: participants,
                     description: currentAdventure.description
                 }
                 {

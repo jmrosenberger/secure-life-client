@@ -19,12 +19,12 @@ export const LocationList = (props) => {
                 onClick={() => {
                     history.push({ pathname: "/locations/new" })
                 }}
-            >Add New Location</button>
+            >Add New Location To Bucket List</button>
 
             <h2 className="places_visited">Places I've Been</h2>
             {
                 locations.map(location => {
-                    if (location.is_visited = true) {
+                    if (location.is_visited === true) {
                         return <section key={`location--${location.id}`} className="location">
                             <div className="location__city">Name of City: {location?.city}</div>
                             <div className="location__park">Name of Park: {location?.park}</div>
@@ -34,10 +34,10 @@ export const LocationList = (props) => {
 
                 }).reverse()
             }
-            {/* <h2 className="bucket_list">Bucket List</h2>
+            <h2 className="bucket_list">Bucket List</h2>
             {
                 locations.map(location => {
-                    if (location.is_visited = false) {
+                    if (location.is_visited === false) {
                         return <section key={`location--${location.id}`} className="location">
                             <div className="location__city">Name of City: {location?.city}</div>
                             <div className="location__park">Name of Park: {location?.park}</div>
@@ -46,7 +46,7 @@ export const LocationList = (props) => {
                     }
 
                 }).reverse()
-            } */}
+            }
 
         </article>
 
