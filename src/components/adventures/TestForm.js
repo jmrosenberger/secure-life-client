@@ -27,7 +27,6 @@ export const TestForm = () => {
     },
         [])
 
-    // console.log(humans)
 
     const getAdventureToEdit = () => {
         if (adventureId) {
@@ -69,7 +68,7 @@ export const TestForm = () => {
         console.log(locationState.id)
         setLocation(locationState.id)
     }
-    currentAdventure.location = location
+
 
     const updateParticipants = (event) => {
         const participantsArray = [...participants]
@@ -84,9 +83,7 @@ export const TestForm = () => {
         setParticipants(participantsArray)
     }
 
-    
-    // console.log(currentAdventure)
-
+    currentAdventure.location = location
     return (
         <form className="adventureForm">
             <h2 className="adventureForm__title">Adventure Details</h2>
@@ -114,7 +111,8 @@ export const TestForm = () => {
                 <div className="form-group">
                     <label htmlFor="location">Location: </label>
                     <select name="location" placeholder="Select Location" className="form-control"
-                        value={location.id}
+                        value={currentAdventure.location.id}
+                        // selected={adventureId ? location : 0}
                         defaultValue={0}
                         onChange={updateLocation}>
                         <option value="0" disabled>Select Location</option>
