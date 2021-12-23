@@ -79,11 +79,12 @@ export const AdventureDetail = () => {
             <section key={`adventure--${adventure?.id}`} className="adventure">
                 <div className="adventure__title">{adventure?.title}</div>
                 <div className="adventure__date">Date: {adventure?.date}</div>
+                <div className="adventure__location">Location: {adventure?.location?.park}, {adventure?.location?.city}</div>
                 <div className="adventure__participants">Participants: {
                     adventure?.participants?.map(participant => {
                         return participant.name
                     }).join(", ")}</div>
-                <div className="adventure__description">Description: {adventure?.description}</div>
+                <div className="adventure__description">Notes: {adventure?.description}</div>
                 <div className="adventure__images">
                     <h3>Adventure Images</h3>
                     <div className="adventureImages">
