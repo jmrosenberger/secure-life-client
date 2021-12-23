@@ -1,17 +1,35 @@
 import React, { useEffect, useState } from "react"
 import { Link, useHistory, useParams } from "react-router-dom"
 import { getLocations } from "./LocationManager.js"
+import { getAdventures } from "../adventures/AdventureManager.js"
 import './Locations.css'
 
 export const LocationList = (props) => {
     const history = useHistory()
     const [locations, setLocations] = useState([])
     const { locationId } = useParams()
+    const [adventures, setAdventures] = useState([])
 
     useEffect(() => {
         getLocations()
             .then(data => setLocations(data))
     }, [])
+    useEffect(() => {
+        getAdventures()
+            .then(data => setAdventures(data))
+    }, [])
+
+    const visitedLocations = (location) => {
+        for(location of locations){
+            adventures.map(adventure => {
+                if (adventure.location.id === location.id){
+                    location.is_visited = true
+                }
+            })
+        }
+    }
+
+    visitedLocations()
 
     return (
         <article className="locations">
