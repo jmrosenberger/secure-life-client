@@ -27,7 +27,7 @@ export const AdventureDetail = () => {
 
     const deleteSingleAdventure = (adventureId) => {
         deleteAdventure(adventureId)
-            .then(history.push({ pathname: "/adventures" }))
+            .then(setTimeout(() => history.push({ pathname: "/adventures" }), 200))
     }
 
     const confirmDelete = (id) => {

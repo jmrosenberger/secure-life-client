@@ -50,7 +50,7 @@ export const LocationList = (props) => {
                         </section>
                     } 
 
-                }).reverse()
+                })
             }
             <h2 className="bucket_list">Bucket List</h2>
             {
@@ -63,7 +63,7 @@ export const LocationList = (props) => {
                         </section>
                     }
 
-                }).reverse()
+                })
             }
 
         </article>

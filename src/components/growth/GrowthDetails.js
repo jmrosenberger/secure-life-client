@@ -77,11 +77,11 @@ export const GrowthDetail = () => {
         <>
             <h2>Growth Progress Details</h2>
             <section key={`growth--${growth?.id}`} className="growth">
-                <div className="growth__human">{growth?.human?.name}</div>
-                <div className="growth__age">{growth?.human?.age}</div>
-                <div className="growth__height">Height: {growth?.height}</div>
-                <div className="growth__weight">Weight: {growth?.weight}</div>
-                <div className="growth__length">Length: {growth?.length}</div>
+                <div className="growth__human"><h4>{growth?.human?.name}</h4></div>
+                <div className="growth__age">Age: {growth?.age} months</div>
+                <div className="growth__height">Height: {growth?.height} inches</div>
+                <div className="growth__weight">Weight: {growth?.weight} lbs</div>
+                <div className="growth__length">Length: {growth?.length} inches</div>
                 <div className="growth__date">Date: {growth?.date}</div>
                 <div className="growth__notes">Notes: {growth?.notes}</div>
                 <div className="adventure__images">

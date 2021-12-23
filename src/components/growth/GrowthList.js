@@ -29,7 +29,7 @@ export const GrowthList = (props) => {
                         <Link to={`growth/details/${growth.id}`}>Details</Link>
                     </section>
 
-                }).reverse()
+                })
             }
 
         </article>
