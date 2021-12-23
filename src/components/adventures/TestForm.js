@@ -65,7 +65,6 @@ export const TestForm = () => {
 
     const updateLocation = (event) => {
         const locationState = { ...location}
-        // const value = parseInt(event.target.value)
         locationState.id = event.target.value
         console.log(locationState.id)
         setLocation(locationState.id)
@@ -85,7 +84,7 @@ export const TestForm = () => {
         setParticipants(participantsArray)
     }
 
-    // console.log(location)
+    
     // console.log(currentAdventure)
 
     return (
