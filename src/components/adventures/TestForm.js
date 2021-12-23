@@ -14,7 +14,6 @@ export const TestForm = () => {
     const [locations, setLocations] = useState([])
     const [location, setLocation] = useState({})
 
-
     useEffect(() => {
         getHumans()
             .then(data => setHumans(data))
@@ -26,7 +25,6 @@ export const TestForm = () => {
             .then(data => setLocations(data))
     },
         [])
-
 
     const getAdventureToEdit = () => {
         if (adventureId) {
@@ -50,11 +48,9 @@ export const TestForm = () => {
             })
         }
     }
-
     useEffect(() => {
         getAdventureToEdit()
     }, [adventureId])
-
 
     const changeAdventureState = (event) => {
         const newAdventureState = { ...currentAdventure }
@@ -69,7 +65,6 @@ export const TestForm = () => {
         setLocation(locationState.id)
     }
 
-
     const updateParticipants = (event) => {
         const participantsArray = [...participants]
         const value = parseInt(event.target.value)
@@ -82,8 +77,9 @@ export const TestForm = () => {
         }
         setParticipants(participantsArray)
     }
-
+    
     currentAdventure.location = location
+
     return (
         <form className="adventureForm">
             <h2 className="adventureForm__title">Adventure Details</h2>
@@ -111,8 +107,8 @@ export const TestForm = () => {
                 <div className="form-group">
                     <label htmlFor="location">Location: </label>
                     <select name="location" placeholder="Select Location" className="form-control"
-                        value={currentAdventure.location.id}
-                        // selected={adventureId ? location : 0}
+                        value={location.id}
+                        // selected={location.id}
                         defaultValue={0}
                         onChange={updateLocation}>
                         <option value="0" disabled>Select Location</option>
