@@ -1,17 +1,60 @@
 import React, { useEffect, useState } from "react"
 import { Link, useHistory, useParams } from "react-router-dom"
-import { getGrowthList } from "./GrowthManager.js"
+import { getGrowthList, filterGrowth } from "./GrowthManager.js"
+import { getHumans } from "./GrowthManager.js"
 // import './Growth.css'
+
+
+        //                                                      \\
+       //|  --------------------------------------------------  ||\
+      //||  ----  This entire component needs refactored  ----  ||\\
+     // ||  ----  Select dropdown renders list of names;  ----  || \\
+    //  ||  --  Filter works, returns first instance only   --  ||  \\
+   //   ||  -------  Link for Details no longer works  -------  ||   \\
+  //    ||  ---- The select dropdown contains multiples of ---  ||    \\
+ //     ||  -----------  the same name when that   -----------  ||     \\
+//      ||  -----------  name has multiple entries  ----------  ||      \\
+
 
 export const GrowthList = (props) => {
     const history = useHistory()
-    const [growthList, setGrowthList] = useState([])
+    const [growth, setGrowth] = useState([])
+    const [growthFilter, setGrowthFilter] = useState({})
+    const [humans, setHumans] = useState([])
+    const [display, setDisplay] = useState(0)
     const { growthId } = useParams()
 
     useEffect(() => {
         getGrowthList()
-            .then(data => setGrowthList(data))
+            .then(data => setGrowth(data))
     }, [])
+
+    useEffect(() => {
+        getHumans()
+            .then(data => setHumans(data))
+    }, [])
+
+
+
+    const removeFilter = () => {
+        getGrowthList()
+            .then(data => setGrowth(data))
+    }
+
+
+    const handleSort = (e) => {
+        setDisplay(e.target.value)
+        if (e.target.value !== 0) {
+            filterGrowth(e.target.value)
+                .then(growth => setGrowth(growth))
+        } else {
+            getGrowthList().then(growth => setGrowth(growth))
+        }
+    }
+    console.log(display)
+
+
+
 
     return (
         <article className="growth">
@@ -21,17 +64,37 @@ export const GrowthList = (props) => {
                     history.push({ pathname: "/growth/new" })
                 }}
             >Create New Entry</button>
-            {
-                growthList.map(growth => {
-                    return <section key={`growth--${growth.id}`} className="growth">
-                        <div className="growth__human">{growth?.human.name}</div>
-                        <div className="growth__date">Date: {growth?.date}</div>
-                        <Link to={`growth/details/${growth.id}`}>Details</Link>
-                    </section>
+            <fieldset>
+                <div className="form-group">
+                    <label htmlFor="growth__filter">Filter Growth List: </label>
+                    <select name="name" className="form-control"
+                        type="text"
+                        defaultValue={0}
+                        onChange={handleSort}>
+                        <option disabled value={0} >Select Name:</option>
+                        {
+                            humans.map(
+                                (human) => {
+                                    return <option value={human?.id}>{human?.name}</option>
+                                })
+                        }
+                    </select>
+                    <button className="filter__remove" onClick={removeFilter}>Reset Filter</button>
+                </div>
+            </fieldset>
+            <div className="growth">
+                {
+                    growth.map(growth => {
+                        return <section key={`growth--${growth.id}`} className="growth">
+                            <div className="growth__human">{growth?.human.name}</div>
+                            <div className="growth__date">Date: {growth?.date}</div>
+                            <Link to={`growth/details/${growth.id}`}>Details</Link>
+                        </section>
 
-                })
-            }
+                    })
+                }
 
+            </div>
         </article>
 
     )
