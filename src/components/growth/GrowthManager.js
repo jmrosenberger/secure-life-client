@@ -7,6 +7,15 @@ export const getGrowthList = () => {
         .then(response => response.json())
 }
 
+export const filterGrowth = (filterDisplay) => {
+    return fetch(`http://localhost:8000/growth?human=${filterDisplay}`, {
+        headers:{
+            "Authorization": `Token ${localStorage.getItem("sl_token")}`
+        }
+    })
+        .then(response => response.json())
+}
+
 export const getGrowth = (growthId) => {
     return fetch(`http://localhost:8000/growth/${growthId}`, {
         headers:{

@@ -73,6 +73,7 @@ export const GrowthDetail = () => {
             .then(getImages)
     }
 
+    console.log(growth)
     return (
         <>
             <h2>Growth Progress Details</h2>
