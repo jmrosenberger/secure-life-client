@@ -9,9 +9,9 @@ import { GrowthDetail } from "./growth/GrowthDetails.js"
 import { TestForm } from "./adventures/TestForm.js"
 import { AdventureList } from "./adventures/AdventureList.js"
 import { AdventureDetail } from "./adventures/AdventureDetail.js"
-// import { DailyEntryForm } from "./adventures/DailyEntryForm.js"
-// import { DailyEntryList } from "./adventures/DailyEntryList.js"
-// import { DailyEntryDetail } from "./adventures/DailyEntryDetail.js"
+import { EventList } from "./events/EventList.js"
+import { EventForm } from "./events/EventForm.js"
+import { EventDetail } from "./events/EventDetail.js"
 // import { Profile } from "./auth/Profile.js"
 
 
@@ -57,15 +57,18 @@ export const ApplicationViews = () => {
             <Route exact path="/adventures/details/:adventureId(\d+)">
                 <AdventureDetail />
             </Route>
-            {/* <Route exact path="/daily_entries/new">
-                <DailyEntryForm />
+            <Route exact path="/events/new">
+                <EventForm />
             </Route>
-            <Route exact path="/daily_entries">
-                <DailyEntryList />
+            <Route exact path="/events">
+                <EventList />
             </Route>
-            <Route exact path="/daily_entries/edit/:daily_entryId(\d+)">
-                <DailyEntryDetail />
-            </Route> */}
+            <Route exact path="/events/edit/:eventId(\d+)">
+                <EventForm />
+            </Route>
+            <Route exact path="/events/details/:eventId(\d+)">
+                <EventDetail />
+            </Route>
             {/* <Route exact path="/profile">
                 <Profile />
             </Route> */}
