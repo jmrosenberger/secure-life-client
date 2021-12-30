@@ -15,6 +15,9 @@ export const NavBar = () => {
             <li className="navbar__item">
                 <Link className="nav-link" to="/growth">Growth</Link>
             </li>
+            <li className="navbar__item">
+                <Link className="nav-link" to="/events">Events</Link>
+            </li>
             {
                 (localStorage.getItem("sl_token") !== null) ?
                     <li className="nav-item">
