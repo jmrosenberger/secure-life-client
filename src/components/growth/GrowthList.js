@@ -5,17 +5,6 @@ import { getHumans } from "./GrowthManager.js"
 // import './Growth.css'
 
 
-        //                                                      \\
-       //|  --------------------------------------------------  ||\
-      //||  ----  This entire component needs refactored  ----  ||\\
-     // ||  ----  Select dropdown renders list of names;  ----  || \\
-    //  ||  --  Filter works, returns first instance only   --  ||  \\
-   //   ||  -------  Link for Details no longer works  -------  ||   \\
-  //    ||  ---- The select dropdown contains multiples of ---  ||    \\
- //     ||  -----------  the same name when that   -----------  ||     \\
-//      ||  -----------  name has multiple entries  ----------  ||      \\
-
-
 export const GrowthList = (props) => {
     const history = useHistory()
     const [growth, setGrowth] = useState([])
@@ -34,13 +23,10 @@ export const GrowthList = (props) => {
             .then(data => setHumans(data))
     }, [])
 
-
-
     const removeFilter = () => {
         getGrowthList()
             .then(data => setGrowth(data))
     }
-
 
     const handleSort = (e) => {
         setDisplay(e.target.value)
@@ -52,9 +38,6 @@ export const GrowthList = (props) => {
         }
     }
     console.log(display)
-
-
-
 
     return (
         <article className="growth">
@@ -93,7 +76,6 @@ export const GrowthList = (props) => {
 
                     })
                 }
-
             </div>
         </article>
 
