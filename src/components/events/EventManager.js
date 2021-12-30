@@ -49,7 +49,7 @@ export const deleteEvent = (id) => {
 }
 
 export const uploadEventImage = (image) => {
-    return fetch("http://localhost:8000/images", {
+    return fetch("http://localhost:8000/eventimages", {
         method: "POST",
         headers: {
             "Authorization": `Token ${localStorage.getItem("sl_token")}`,
@@ -60,7 +60,7 @@ export const uploadEventImage = (image) => {
 }
 
 export const getEventImages = (eventId) => {
-    return fetch(`http://localhost:8000/images?eventId=${eventId}`, {
+    return fetch(`http://localhost:8000/eventimages?eventId=${eventId}`, {
         headers: {
             "Authorization": `Token ${localStorage.getItem("sl_token")}`
         }

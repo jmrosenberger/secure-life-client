@@ -16,14 +16,14 @@ export const EventDetail = () => {
         if (eventId) {
             getEvent(eventId)
                 .then(data => setEvent(data))
-            // getEventImages()
+            getImages()
         }
     }, [eventId])
 
-    // const getEventImages = () => {
-    //     getEventImages(eventId)
-    //         .then(images => setEventImages(images))
-    // }
+    const getImages = () => {
+        getEventImages(eventId)
+            .then(images => setEventImages(images))
+    }
 
     const deleteSingleEvent = (eventId) => {
         deleteEvent(eventId)
@@ -46,30 +46,30 @@ export const EventDetail = () => {
     }
 
     // File reader that converts image data to Base64
-    // const getBase64 = (file, callback) => {
-    //     const reader = new FileReader();
-    //     reader.addEventListener('load', () => callback(reader.result));
-    //     reader.readAsDataURL(file);
-    // }
+    const getBase64 = (file, callback) => {
+        const reader = new FileReader();
+        reader.addEventListener('load', () => callback(reader.result));
+        reader.readAsDataURL(file);
+    }
 
     // Call file reader function and converts Base64 to string and saves it as a variable
-    // const createEventImageString = (event) => {
-    //     getBase64(event.target.files[0], (base64ImageString) => {
-    //         console.log("Base64 of file is", base64ImageString);
+    const createEventImageString = (event) => {
+        getBase64(event.target.files[0], (base64ImageString) => {
+            console.log("Base64 of file is", base64ImageString);
 
-    //         // Update a component state variable to the value of base64ImageString
-    //         setEventImage(base64ImageString)
-    //     })
-    // }
+            // Update a component state variable to the value of base64ImageString
+            setEventImage(base64ImageString)
+        })
+    }
 
-    // const createEventImage = () => {
-    //     const image = {
-    //         event_id: parseInt(eventId),
-    //         action_pic: eventImage
-    //     }
-    //     uploadEventImage(image)
-    //         .then(getEventImages)
-    // }
+    const createImage = () => {
+        const image = {
+            event_id: parseInt(eventId),
+            action_pic: eventImage
+        }
+        uploadEventImage(image)
+            .then(getImages)
+    }
 
     console.log(event)
 
@@ -80,7 +80,7 @@ export const EventDetail = () => {
                 <div className="event__title">{event?.title}</div>
                 <div className="event__date">Date: {event?.date}</div>
                 <div className="event__notes">Notes: {event?.notes}</div>
-                {/* <div className="event__images">
+                <div className="event__images">
                     <h3>Event Images</h3>
                     <div className="eventImages">
                         {eventImages?.map(img => {
@@ -93,8 +93,8 @@ export const EventDetail = () => {
                     </div>
                     <input type="file" id="event_image" onChange={createEventImageString} />
                     <input type="hidden" name="event_id" value={event.id} />
-                    <button onClick={createEventImage}>Upload</button>
-                </div> */}
+                    <button onClick={createImage}>Upload</button>
+                </div>
                 <button className="btn__edit"
                     onClick={() => {
                         history.push({ pathname: `/events/edit/${event.id}` })
