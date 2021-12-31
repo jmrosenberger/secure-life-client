@@ -45,7 +45,8 @@ export const LocationList = (props) => {
                     if (location.is_visited === true) {
                         return <section key={`location--${location.id}`} className="location">
                             <div className="location__park">Name of Park: {location?.park}</div>
-                            <div className="location__city">Name of City: {location?.city}</div>
+                            <div className="location__city">City: {location?.city}</div>
+                            <div className="location__state">State: {location?.state}</div>
                             <Link to={`locations/details/${location.id}`}>Location Details</Link>
                         </section>
                     } 
@@ -58,7 +59,8 @@ export const LocationList = (props) => {
                     if (location.is_visited === false) {
                         return <section key={`location--${location.id}`} className="location">
                             <div className="location__park">Name of Park: {location?.park}</div>
-                            <div className="location__city">Name of City: {location?.city}</div>
+                            <div className="location__city">City: {location?.city}</div>
+                            <div className="location__state">State: {location?.state}</div>
                             <Link to={`locations/details/${location.id}`}>Location Details</Link>
                         </section>
                     }
