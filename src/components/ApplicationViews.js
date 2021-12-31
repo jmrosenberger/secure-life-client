@@ -12,6 +12,9 @@ import { AdventureDetail } from "./adventures/AdventureDetail.js"
 import { EventList } from "./events/EventList.js"
 import { EventForm } from "./events/EventForm.js"
 import { EventDetail } from "./events/EventDetail.js"
+import { PeopleList } from "./people/PeopleList.js"
+import { PeopleForm } from "./people/PeopleForm.js"
+import { PeopleDetail } from "./people/PeopleDetail.js"
 // import { Profile } from "./auth/Profile.js"
 
 
@@ -68,6 +71,18 @@ export const ApplicationViews = () => {
             </Route>
             <Route exact path="/events/details/:eventId(\d+)">
                 <EventDetail />
+            </Route>
+            <Route exact path="/humans/new">
+                <PeopleForm />
+            </Route>
+            <Route exact path="/humans">
+                <PeopleList />
+            </Route>
+            <Route exact path="/humans/edit/:humanId(\d+)">
+                <PeopleForm />
+            </Route>
+            <Route exact path="/humans/details/:humanId(\d+)">
+                <PeopleDetail />
             </Route>
             {/* <Route exact path="/profile">
                 <Profile />
