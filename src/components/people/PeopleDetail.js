@@ -78,8 +78,8 @@ export const PeopleDetail = () => {
             <h2>Human Details</h2>
             <section key={`human--${human?.id}`} className="human">
                 <div className="human__name">{human?.name}</div>
-                {/* <div className="human__birthday">Birthday: {human?.birthday}</div> */}
-                {/* <div className="human__age">Age: {human?.age}</div> */}
+                <div className="human__birthday">Birthday: {human?.birthday}</div>
+                <div className="human__age">Age: {human?.age}</div>
                 {/* <div className="human__images">
                     <h3>human Images</h3>
                     <div className="humanImages">
