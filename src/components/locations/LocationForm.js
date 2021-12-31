@@ -19,7 +19,8 @@ export const LocationForm = () => {
         } else {
             setCurrentLocation({
                 city: "",
-                park: ""
+                park: "",
+                state: ""
             })
         }
     }
@@ -37,10 +38,10 @@ export const LocationForm = () => {
 
     return (
         <form className="locationForm">
-            <h2 className="locationForm__city">Location Details</h2>
+            <h2 className="locationForm__header">Location Details</h2>
             <fieldset>
                 <div className="form-group">
-                    <label htmlFor="city">City Name: </label>
+                    <label htmlFor="city">City: </label>
                     <input type="text" name="city" required autoFocus className="form-control"
                         value={currentLocation?.city}
                         onChange={changeLocationState}
@@ -49,7 +50,16 @@ export const LocationForm = () => {
             </fieldset>
             <fieldset>
                 <div className="form-group">
-                    <label htmlFor="park">Park Name: </label>
+                    <label htmlFor="state">State: </label>
+                    <input type="text" name="state" required autoFocus className="form-control"
+                        value={currentLocation?.state}
+                        onChange={changeLocationState}
+                    />
+                </div>
+            </fieldset>
+            <fieldset>
+                <div className="form-group">
+                    <label htmlFor="park">Name of National Park: </label>
                     <input type="text" name="park" required autoFocus className="form-control"
                         value={currentLocation?.park}
                         onChange={changeLocationState}
@@ -61,7 +71,8 @@ export const LocationForm = () => {
 
                 const location = {
                     city: currentLocation.city,
-                    park: currentLocation.park
+                    park: currentLocation.park,
+                    state: currentLocation.state
                 }
                 {
                     editMode ? 

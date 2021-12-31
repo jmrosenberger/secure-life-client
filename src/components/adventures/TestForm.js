@@ -115,7 +115,7 @@ export const TestForm = () => {
                         {
                             locations.map(
                                 (location) => {
-                                    return <option name={location.id} value={location.id}>{location.park}, {location.city}</option>
+                                    return <option name={location.id} value={location.id}>{location.park} - {location.city}, {location.state}</option>
                                 })
                         }
                     </select>

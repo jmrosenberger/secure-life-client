@@ -46,8 +46,9 @@ export const LocationDetail = () => {
         <>
             <h2>Location Details</h2>
             <section key={`location--${location.id}`} className="location">
-                <div className="location__city">{location.city}</div>
-                <div className="location__park">Date: {location.park}</div>
+                <div className="location__park">Name of Park: {location.park}</div>
+                <div className="location__city">City: {location.city}</div>
+                <div className="location__state">State: {location?.state}</div>
                 <button className="btn__edit"
                     onClick={() => {
                         history.push({ pathname: `/locations/edit/${location.id}`})
