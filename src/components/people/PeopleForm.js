@@ -19,9 +19,9 @@ export const PeopleForm = () => {
                 })
         } else {
             setCurrentHuman({
-                name: ""
-                // birthday: Date(),
-                // age: 0
+                name: "",
+                birthday: "",
+                age: 0
             })
         }
     }
@@ -48,7 +48,7 @@ export const PeopleForm = () => {
                     />
                 </div>
             </fieldset>
-            {/* <fieldset>
+            <fieldset>
                 <div className="form-group">
                     <label htmlFor="birthday">Birthday: </label>
                     <input type="date" name="birthday" required className="form-control"
@@ -56,23 +56,23 @@ export const PeopleForm = () => {
                         onChange={changeHumanState}
                     />
                 </div>
-            </fieldset> */}
-            {/* <fieldset>
+            </fieldset>
+            <fieldset>
                 <div className="form-group">
                     <label htmlFor="age">Age: </label>
-                    <input type="text" name="age" required autoFocus className="form-control"
+                    <input type="number" name="age" required autoFocus className="form-control"
                         value={currentHuman.age}
                         onChange={changeHumanState}
                     />
                 </div>
-            </fieldset> */}
+            </fieldset>
             <button onClick={(event) => {
                 event.preventDefault()
 
                 const human = {
-                    name: currentHuman.name
-                    // birthday: currentHuman.birthday,
-                    // age: currentHuman.age
+                    name: currentHuman.name,
+                    birthday: currentHuman.birthday,
+                    age: currentHuman.age
                 }
                 {
                     editMode ?
