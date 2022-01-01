@@ -73,6 +73,19 @@ export const PeopleDetail = () => {
 
     console.log(human)
 
+
+    // function calculate_age(dob) {
+    //     var diff_ms = Date.now() - dob.getTime();
+    //     var age_dt = new Date(diff_ms);
+
+    //     return Math.abs(age_dt.getUTCFullYear() - 1970);
+    // }
+
+
+    // console.log(calculate_age(new Date(1982, 11, 4)));
+
+    // console.log(calculate_age(new Date(1962, 1, 1)));
+
     return (
         <>
             <h2>Human Details</h2>
@@ -98,15 +111,15 @@ export const PeopleDetail = () => {
                 <button className="btn__edit"
                     onClick={() => {
                         history.push({ pathname: `/humans/edit/${human.id}` })
-                    }}>Edit Human</button>
+                    }}>Edit</button>
                 <button className="btn__delete"
                     onClick={() => {
                         confirmDelete(human.id)
-                    }}>Delete Human</button>
+                    }}>Remove Person from List</button>
                 <button className="btn__edit"
                     onClick={() => {
                         history.push({ pathname: `/humans` })
-                    }}>Return to My People</button>
+                    }}>Go Back to My People</button>
             </section>
 
 
