@@ -52,10 +52,10 @@ export const NavBar = () => {
         <Navbar expand="sm md lg xl xxl" bg="secondary" fixed="top" className="navbar_container">
             <Container>
                 {/* <Navbar.Brand href="/"><img rel="" src="" alt="logo" className="navbar__logo" /></Navbar.Brand> */}
-                <Navbar.Toggle aria-controls="basic-navbar-nav" />
+                {/* <Navbar.Toggle aria-controls="basic-navbar-nav" /> */}
                 <Navbar.Collapse id="basic-navbar-nav">
                     <Nav className="me-auto">
-                        {/* <Nav.Link href="/">Home</Nav.Link> */}
+                        <Nav.Link href="/">Home</Nav.Link>
                         <Nav.Link href="/adventures">Adventures</Nav.Link>
                         <Nav.Link href="/locations">Locations</Nav.Link>
                         <Nav.Link href="/growth">Growth</Nav.Link>
