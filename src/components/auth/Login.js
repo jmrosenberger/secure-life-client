@@ -45,10 +45,10 @@ export const Login = () => {
             <section>
                 <form className="form--login" onSubmit={handleLogin}>
                     <h1>SecureLife</h1>
-                    <h2>Please sign in</h2>
+                    <h3>Please sign in</h3>
                     <fieldset>
                         <label htmlFor="inputUsername"> Username </label>
-                        <input ref={username} type="username" id="username" className="form-control" placeholder="Username address" required autoFocus />
+                        <input ref={username} type="username" id="username" className="form-control" placeholder="Username" required autoFocus />
                     </fieldset>
                     <fieldset>
                         <label htmlFor="inputPassword"> Password </label>
@@ -57,12 +57,12 @@ export const Login = () => {
                     <fieldset style={{
                         textAlign: "center"
                     }}>
-                        <button className="btn btn-1 btn-sep icon-send" type="submit">Sign In</button>
+                        <button className="btn btn-1 btn-sep icon-send btn__submit" type="submit">Sign In</button>
                     </fieldset>
                 </form>
-            </section>
-            <section className="link--register">
-                <Link to="/register">Not a member yet?</Link>
+                <fieldset className="link--register">
+                    <Link to="/register">Not a member yet?</Link>
+                </fieldset>
             </section>
         </main>
     )

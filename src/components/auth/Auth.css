@@ -1,35 +1,40 @@
-.h1, h1 {
+     /* //  ------------------------  // */
+    /* //      MOBILE 1ST STYLING    // */
+   /* //      ** ( iPhone 5 ) **    // */
+  /* //  ------------------------  // */
+
+.container--login {
+    background: url("../images/faded_family_walking.png");
+    background-size: 100%;
+    opacity: 0.75;
+    text-align: center;
+}
+
+h1 {
     font-size: 2.5rem;
+    margin: .5rem auto 4rem 1rem;
+}
+
+h3 {
+    font-size: 1.5rem;
+    color: rgb(68, 99, 223);
+    margin-left: 1rem;
 }
 
 fieldset {
-    min-width: 0;
-    padding: 1rem 0;
-    margin: 0;
+    min-width: 2rem;
     border: 0;
 }
 
 .form--login {
     display: inline-block;
-    margin: 0 auto;
     text-align: left;
-}
-
-.form--login > fieldset > input[type="email"],
-.form--login > fieldset > input[type="password"] {
-    width: 25em;
-}
-
-.label--login {
-    width: 8rem;
-    display: inline-block;
 }
 
 .form-control {
     display: block;
-    width: 94%;
     height: calc(1.5em + .75rem + 2px);
-    padding: .375rem .75rem;
+    padding: 0 .75rem;
     font-size: 1rem;
     font-weight: 400;
     line-height: 1.5;
@@ -42,29 +47,160 @@ fieldset {
     transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
 }
 
-.container--login {
-    text-align: center;
-}
-
-.form--login {
-    background-size: cover;
-    background-position-x: center;
-    /* background-image: url('./logo.svg'); */
-    z-index: 1;
-    min-height: 25rem;
-    min-width: 45rem;
-    padding: 0 5rem;
-    background-color: hsla(0,0%,100%,0.75);
-    background-blend-mode: overlay;
-    background-repeat: no-repeat;
-}
-
 .button--close {
     position: relative;
-    bottom: -2rem;
+    bottom: -.25rem;
+    border-radius: 4px;
+}
+
+.btn__submit {
+    margin: 1rem 0;
+}
+
+.link--register {
+    margin-bottom: 10rem;
+    padding-bottom: 4.5rem;
 }
 
 .dialog {
-    min-width: 15rem;
-    min-height: 5rem;
+    margin-left: 2rem;
+    margin-right: 2rem;
+    border-radius: 4px;
+    border: 2px solid gray;
+    color: rgb(87, 87, 87);
 }
+
+.container--register {
+    background: url("../images/faded_family_walking.png");
+    background-size: 100%;
+    opacity: 0.75;
+}
+
+.form--register {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.container--register h3 {
+    margin-top: 0;
+}
+
+.container--register label {
+    margin-left: 1.75rem;
+}
+
+.container--register button {
+    margin: 1rem auto;
+}
+
+.input__register {
+    margin: 0 1.65rem;
+}
+
+.link--login {
+    padding-bottom: 3rem;
+}
+
+
+
+     /* //  ------------------------  // */
+    /* //      MOBILE 1ST STYLING    // */
+   /* //    ** ( iPhone 6/7/8 ) **  // */
+  /* //  ------------------------  // */
+
+@media only screen and (min-width: 350px){
+    .link--register {
+        padding-bottom: 11rem;
+    }
+}
+
+
+     /* //  -------------------------  // */
+    /* //      MOBILE 1ST STYLING     // */
+   /* // ** ( iPhone 6/7/8 Plus ) ** // */
+  /* //  -------------------------  // */
+
+@media only screen and (min-width: 370px){
+    .link--register {
+        padding-bottom: 20rem;
+    }
+
+    .link--login {
+        padding-bottom: 10rem;
+    }
+}
+
+     /* //  -------------------------  // */
+    /* //      MOBILE 1ST STYLING     // */
+   /* //         ** ( iPad ) **      // */
+  /* //  -------------------------  // */
+
+@media only screen and (min-width: 650px){
+    /* .link--register {
+        padding-bottom: 20rem;
+    }
+    .link--login {
+        padding-bottom: 10rem;
+    } */
+    .form--login {
+        margin-top: 5rem;
+    }
+
+    .form--login h3,
+    .form--register h3 {
+        margin-top: 10rem;
+        margin-bottom: 3rem;
+    }
+
+    .form--login input {
+        width: 100%;
+    }
+}
+
+     /* //  -------------------------  // */
+    /* //      MOBILE 1ST STYLING     // */
+   /* //      ** ( iPad Pro ) **     // */
+  /* //  -------------------------  // */
+
+@media only screen and (min-width: 950px){
+    .link--register {
+        padding-bottom: 26.5rem;
+    }
+    .link--login {
+        padding-bottom: 20rem;
+    }
+    .form--login {
+        margin-top: 5rem;
+    }
+
+    .form--login h1{
+        font-size: 3.5rem;
+        margin-top: 4rem;
+    }
+
+    .form--login h3,
+    .form--register h3 {
+        margin-top: 14rem;
+        margin-bottom: 3rem;
+        font-size: 2.5rem;
+    }
+
+    .form--login input {
+        padding: .5rem .5rem;
+    }
+
+    .form--register label {
+        margin-left: 0;
+    }
+
+    .form-control {
+        margin: .5rem auto;
+    }
+
+    .btn__submit {
+        margin: 2rem auto;
+    }
+}
+
+

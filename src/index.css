@@ -22,17 +22,6 @@ body, button, input, select, textarea {
     font-family: "Comfortaa", Arial, sans-serif;
     font-size: 1rem;
     line-height: 1.5;
-    padding: 0;
-    margin: 1rem;
-}
-
-.event, .game {
-	border: 2px dotted seagreen;
-	padding: .5rem;
-	margin: 2rem auto;
-	border-radius: 8px;
-	background-color: rgb(252, 170, 170);
-	font-weight: bold;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -83,9 +72,7 @@ code {
 	color: inherit;
 	background: none;
 	cursor: pointer;
-	padding: 25px 80px;
 	display: inline-block;
-	margin: 15px 30px;
 	text-transform: uppercase;
 	letter-spacing: 1px;
 	font-weight: 700;
@@ -98,7 +85,7 @@ code {
 
 .btn:after {
 	content: '';
-	position: absolute;
+	position: relative;
 	z-index: -1;
 	-webkit-transition: all 0.3s;
 	-moz-transition: all 0.3s;
@@ -119,8 +106,6 @@ code {
 .btn__submit {
 	border: 2px solid rgb(99, 120, 59);
     border-radius: 5px;
-    padding: 1rem;
-    margin: 2rem 35% 2rem 35%;
     background-color: rgb(146, 249, 249);
 	color: rgb(0, 0, 199);
 }
@@ -128,11 +113,11 @@ code {
 
 /* Icon separator */
 .btn-sep {
-	padding: 25px 60px 25px 120px;
+	padding: .5rem 1rem .5rem 1rem;
 }
 
 .btn-sep:before {
-	background: rgba(0,0,0,0.15);
+	background: rgba(0,0,0,0.05);
 }
 
 /* Button 1 */
@@ -141,7 +126,6 @@ code {
 	color: #fff;
 	border-radius: 8px;
 	border: 4px ridge olivedrab;
-	margin-top: 4rem;
 }
 
 .btn-1:hover {
@@ -154,13 +138,13 @@ code {
 }
 
 .btn-1:before {
-	position: absolute;
-	height: 100%;
-	left: 0;
-	top: 0;
-	line-height: 3;
-	font-size: 140%;
-	width: 60px;
+	position: relative;
+	/* height: 100%; */
+	/* left: 0; */
+	/* top: 0; */
+	/* line-height: 3; */
+	/* font-size: 140%; */
+	/* width: 60px; */
 }
 
 /* Button 2 */
@@ -245,4 +229,5 @@ code {
 
 .icon-send:before {
 	content: "🔓";
+	padding-right: .5rem;
 }
