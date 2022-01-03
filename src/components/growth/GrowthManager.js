@@ -75,6 +75,15 @@ export const deleteGrowth = (id) => {
     })
 }
 
+export const deleteGrowthImage = (id) => {
+    return fetch(`http://localhost:8000/growthimages/${id}`, {
+        method: "DELETE",
+        headers:{
+            "Authorization": `Token ${localStorage.getItem("sl_token")}`
+        }
+    })
+}
+
 export const uploadGrowthImage = (image) => {
     return fetch("http://localhost:8000/growthimages", {
         method: "POST",

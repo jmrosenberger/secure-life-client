@@ -22,6 +22,9 @@ export const AdventureList = (props) => {
                     history.push({ pathname: "/adventures/new" })
                 }}
             >Create New Adventure</button>
+            <button className="btn__link">
+                <Link className="locations__link" to="/locations">Locations</Link>
+            </button>
             {
                 adventures.map(adventure => {
                     return <section key={`adventure--${adventure.id}`} className="adventure">

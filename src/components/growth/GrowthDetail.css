@@ -1,0 +1,98 @@
+/* .adventure__details body {
+    background-color: rgb(161, 108, 29);
+} */
+
+.growth--details {
+    display: flex;
+    flex-direction: column;
+    background: url("../images/man-on-watch.png");
+    background-size: 100%;
+    border: 2px solid rgb(194, 147, 95);
+    border-radius: 8px;
+    padding: 1rem;
+    /* margin-right: 4rem; */
+    /* background-color: rgba(0, 255, 255, 0.428); */
+    color: rgb(57, 110, 253);
+    width: 97%;
+    font-size: 1.5rem;
+}
+
+.growth__item {
+    margin: .25rem;
+}
+
+.growth__human {
+    font-size: 1.75rem;
+    font-weight: bolder;
+    color: rgb(17, 142, 17);
+    text-decoration: underline;
+    margin-bottom: 2rem;
+}
+
+.btn__group {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 5rem;
+}
+
+.btn__edit, 
+.btn__delete,
+.btn__return {
+    /* width: 10rem; */
+    margin: 2rem 0;
+    padding: .5rem;
+    font-size: small;
+    font-weight: 700;
+    border: 1px solid rgb(63, 114, 63);
+    border-radius: 8px;
+    color: rgb(68, 68, 192);
+}
+
+.growth__images {
+    margin-top: 10rem;
+}
+
+.growth__images h3 {
+    font-size: xx-large;
+    margin-bottom: 5rem;
+}
+
+.growth__images input {
+    margin-left: 2rem;
+}
+
+#growth_image {
+    border: 2px solid rgba(64, 112, 243, 0.575);
+    border-radius: 4px;
+    padding: .55rem;
+    margin-right: 1rem;
+}
+
+.growthImages {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    margin-top: 2rem;
+    align-content: stretch;
+    
+}
+
+.growthImage {
+    margin: 1rem;
+    width: 20%;
+}
+
+.growthImage button {
+    float: right;
+    border: 1px solid black;
+    border-radius: 100%;
+    font-size: x-small;
+    opacity: .65;
+}
+
+.growthImage img {
+    float: right;
+    border: 1px solid gray;
+    border-radius: 8px;
+}
+

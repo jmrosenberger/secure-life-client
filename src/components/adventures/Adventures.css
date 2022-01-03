@@ -1,10 +1,9 @@
 .adventures__container {
     background: url("../images/map_compass_faded.png");
-    background-size: cover;
+    background-size: 100%;
     position: fixed;
     height: 100%;
     width: 100%;
-
 }
 
 .adventure {
