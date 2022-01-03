@@ -121,7 +121,7 @@ export const AdventureDetail = () => {
                             <button className="btn__return"
                                 onClick={() => {
                                     history.push({ pathname: `/adventures` })
-                                }}>Return to Adventures List</button>
+                                }}>Return to Adventures</button>
                         </div>
                     </section>
                 </article>
