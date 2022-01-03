@@ -4,6 +4,7 @@ import { ApplicationViews } from './ApplicationViews.js'
 import { NavBar } from './nav/NavBar.js'
 import { Login } from './auth/Login'
 import { Register } from './auth/Register'
+import 'bootstrap'
 
 
 export const SecureLife = () => {
