@@ -15,7 +15,7 @@ export const AdventureList = (props) => {
 
 
     return (
-        <article className="adventures">
+        <article className="adventures__container">
             <h2>Adventures List</h2>
             <button className="btn-2 btn-sep icon-create"
                 onClick={() => {

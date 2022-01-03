@@ -35,19 +35,12 @@ export const PeopleForm = () => {
         setCurrentHuman(newHumanState)
     }
 
-
     function calculate_age(dob) {
         var diff_ms = Date.now() - dob.getTime();
         var age_dt = new Date(diff_ms);
 
         return Math.abs(age_dt.getUTCFullYear() - 1970);
     }
-
-
-    console.log(calculate_age(new Date(1982, 11, 4)));
-
-    console.log(calculate_age(new Date(1962, 1, 1)));
-
 
     return (
         <form className="humanForm">
@@ -70,15 +63,6 @@ export const PeopleForm = () => {
                     />
                 </div>
             </fieldset>
-            {/* <fieldset>
-                <div className="form-group">
-                    <label htmlFor="age">Age: </label>
-                    <input type="number" name="age" required autoFocus className="form-control"
-                        value={currentHuman.age}
-                        onChange={changeHumanState}
-                    />
-                </div>
-            </fieldset> */}
             <button onClick={(event) => {
                 event.preventDefault()
 

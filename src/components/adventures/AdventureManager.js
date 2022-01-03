@@ -48,6 +48,15 @@ export const deleteAdventure = (id) => {
     })
 }
 
+export const deleteAdventureImage = (id) => {
+    return fetch(`http://localhost:8000/images/${id}`, {
+        method: "DELETE",
+        headers:{
+            "Authorization": `Token ${localStorage.getItem("sl_token")}`
+        }
+    })
+}
+
 export const uploadAdventureImage = (image) => {
     return fetch("http://localhost:8000/images", {
         method: "POST",
