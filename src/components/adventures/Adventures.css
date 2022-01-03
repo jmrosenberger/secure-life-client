@@ -1,3 +1,12 @@
+.adventures__container {
+    background: url("../images/map_compass_faded.png");
+    background-size: cover;
+    position: fixed;
+    height: 100%;
+    width: 100%;
+
+}
+
 .adventure {
     display: flex;
     flex-direction: column;

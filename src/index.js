@@ -3,13 +3,16 @@ import ReactDOM from 'react-dom'
 // import reportWebVitals from './reportWebVitals'
 import { BrowserRouter as Router } from 'react-router-dom'
 import { SecureLife } from './components/SecureLife.js'
+import SSRProvider from 'react-bootstrap/SSRProvider'
 import './index.css'
 
 ReactDOM.render(
   <React.StrictMode>
-      <Router>
-          <SecureLife />
-      </Router>
+    <Router>
+      <SSRProvider>
+        <SecureLife />
+      </SSRProvider>
+    </Router>
   </React.StrictMode>,
   document.getElementById("root")
 )
