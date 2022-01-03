@@ -4,6 +4,8 @@ import ReactDOM from 'react-dom'
 import { BrowserRouter as Router } from 'react-router-dom'
 import { SecureLife } from './components/SecureLife.js'
 import SSRProvider from 'react-bootstrap/SSRProvider'
+import '../node_modules/bootstrap';
+import 'bootstrap/dist/css/bootstrap.min.css';
 import './index.css'
 
 ReactDOM.render(
