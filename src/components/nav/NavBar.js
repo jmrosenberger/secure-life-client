@@ -57,7 +57,7 @@ export const NavBar = () => {
                     <Nav className="me-auto">
                         <Nav.Link href="/">Home</Nav.Link>
                         <Nav.Link href="/adventures">Adventures</Nav.Link>
-                        <Nav.Link href="/locations">Locations</Nav.Link>
+                        {/* <Nav.Link href="/locations">Locations</Nav.Link> */}
                         <Nav.Link href="/growth">Growth</Nav.Link>
                         <Nav.Link href="/events">Events</Nav.Link>
                         <NavDropdown title={`Welcome ${localStorage.getItem("sl_username")}`} id="basic-nav-dropdown" className="basic-nav-dropdown">

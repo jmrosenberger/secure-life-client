@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from "react"
 import { useHistory, useParams } from "react-router-dom"
-import { getGrowthImages, uploadGrowthImage, deleteGrowth, getGrowth } from "./GrowthManager.js"
+import { getGrowthImages, uploadGrowthImage, deleteGrowth, deleteGrowthImage, getGrowth } from "./GrowthManager.js"
 import { confirmAlert } from "react-confirm-alert"
 import "../react-confirm-alert.css"
-// import "./Growth.css"
+import "./GrowthDetail.css"
 
 export const GrowthDetail = () => {
     const { growthId } = useParams()
@@ -46,6 +46,27 @@ export const GrowthDetail = () => {
         })
     }
 
+    const deleteImage = (imageId) => {
+        deleteGrowthImage(imageId)
+            .then(setTimeout(() => history.push({ pathname: `/growth/details/${growthId}` }), 50))
+            .then(setTimeout(() => getImages(), 200))
+    }
+
+    const confirmDeleteImage = (id) => {
+        confirmAlert({
+            message: 'Are you sure you want to DELETE this image?',
+            buttons: [
+                {
+                    label: 'Yes',
+                    onClick: () => { deleteImage(id) }
+                },
+                {
+                    label: 'No',
+                    onClick: () => alert("Click No if you can't make up your mind")
+                }]
+        })
+    }
+
     // File reader that converts image data to Base64
     const getBase64 = (file, callback) => {
         const reader = new FileReader();
@@ -63,7 +84,7 @@ export const GrowthDetail = () => {
         })
     }
 
-    
+
     const createImage = () => {
         const image = {
             growth_id: parseInt(growthId),
@@ -76,42 +97,51 @@ export const GrowthDetail = () => {
     console.log(growth)
     return (
         <>
-            <h2>Growth Progress Details</h2>
-            <section key={`growth--${growth?.id}`} className="growth">
-                <div className="growth__human"><h4>{growth?.human?.name}</h4></div>
-                <div className="growth__age">Age: {growth?.age} months</div>
-                <div className="growth__height">Height: {growth?.height} inches</div>
-                <div className="growth__weight">Weight: {growth?.weight} lbs</div>
-                <div className="growth__length">Length: {growth?.length} inches</div>
-                <div className="growth__date">Date: {growth?.date}</div>
-                <div className="growth__notes">Notes: {growth?.notes}</div>
-                <div className="adventure__images">
-                    <h3>Pictures of Growth</h3>
-                    <div className="growthImages">
-                        {growthImages?.map(img => {
-                            return <>
-                                <div className="growthImage">
-                                    <img src={img?.action_pic} width="40%" alt={`growth-${img?.action_pic}`} />
-                                </div>
-                            </>
-                        })}
+            <div className="growth__details">
+                <h2>Growth Progress </h2>
+                <section key={`growth--${growth?.id}`} className="growth--details">
+                    <div className="growth__human growth__item"><h4>{growth?.human?.name}</h4></div>
+                    <div className="growth__age growth__item">Age: {growth?.age} months</div>
+                    <div className="growth__height growth__item">Height: {growth?.height} inches</div>
+                    <div className="growth__weight growth__item">Weight: {growth?.weight} lbs</div>
+                    <div className="growth__length growth__item">Length: {growth?.length} inches</div>
+                    <div className="growth__date growth__item">Date: {growth?.date}</div>
+                    <div className="growth__notes growth__item">Notes: {growth?.notes}</div>
+                    <div className="btn__group">
+                        <button className="btn__edit"
+                            onClick={() => {
+                                history.push({ pathname: `/growth/edit/${growth.id}` })
+                            }}>Edit Entry</button>
+                        <button className="btn__delete"
+                            onClick={() => {
+                                confirmDelete(growth.id)
+                            }}>Delete Entry</button>
+                        <button className="btn__return"
+                            onClick={() => {
+                                history.push({ pathname: `/growth` })
+                            }}>Return to Events</button>
                     </div>
-                    <input type="file" id="growth_image" onChange={createGrowthImageString} />
-                    <input type="hidden" name="growth_id" value={growth.id} />
-                    <button onClick={createImage}>Upload</button>
-                </div>
-                <button className="btn__edit"
-                    onClick={() => {
-                        history.push({ pathname: `/growth/edit/${growth.id}` })
-                    }}>Edit Entry</button>
-                <button className="btn__delete"
-                    onClick={() => {
-                        confirmDelete(growth.id)
-                    }}>Delete Entry</button>
-            </section>
-
-
+                    <div className="growth__images">
+                        <h3>Pictures of Growth</h3>
+                        <input type="file" id="growth_image" onChange={createGrowthImageString} />
+                        <input type="hidden" name="growth_id" value={growth.id} />
+                        <button onClick={createImage}>Upload</button>
+                        <div className="growthImages">
+                            {growthImages?.map(img => {
+                                return <>
+                                    <div className="growthImage">
+                                        <button className="btn__deleteImage"
+                                            onClick={() => {
+                                                confirmDeleteImage(img.id)
+                                            }}>x</button>
+                                        <img src={img?.action_pic} width="100%" alt={`growth-${img?.action_pic}`} />
+                                    </div>
+                                </>
+                            })}
+                        </div>
+                    </div>
+                </section>
+            </div>
         </>
-
     )
 }
