@@ -27,6 +27,7 @@ export const NavBar = () => {
                             <NavDropdown.Item href="/profile">My Profile</NavDropdown.Item>
                             <NavDropdown.Divider />
                             <NavDropdown.Item href="/humans">My People</NavDropdown.Item>
+                            <NavDropdown.Item href="/locations">My Locations</NavDropdown.Item>
                             <NavDropdown.Divider />
                             <NavDropdown.Item href="/#" onClick={
                                 () => {
