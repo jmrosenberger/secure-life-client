@@ -22,7 +22,7 @@ export const AdventureList = (props) => {
                     history.push({ pathname: "/adventures/new" })
                 }}
             >Create New Adventure</button>
-            <button className="btn__link">
+            <button className="btn btn-primary btn-4 btn__link">
                 <Link className="locations__link" to="/locations">Locations</Link>
             </button>
             {

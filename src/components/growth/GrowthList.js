@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react"
 import { Link, useHistory, useParams } from "react-router-dom"
 import { getGrowthList, filterGrowth } from "./GrowthManager.js"
 import { getHumans } from "./GrowthManager.js"
-// import './Growth.css'
+import './Growth.css'
 
 
 export const GrowthList = (props) => {
@@ -40,7 +40,7 @@ export const GrowthList = (props) => {
     console.log(display)
 
     return (
-        <article className="growth">
+        <article className="growth__container">
             <h2>Growth Entries</h2>
             <button className="btn-2 btn-sep icon-create"
                 onClick={() => {
@@ -62,10 +62,10 @@ export const GrowthList = (props) => {
                                 })
                         }
                     </select>
-                    <button className="filter__remove" onClick={removeFilter}>Reset Filter</button>
+                    <button className="btn btn-primary filter__remove" onClick={removeFilter}>Reset Filter</button>
                 </div>
             </fieldset>
-            <div className="growth">
+            <div className="growth--list">
                 {
                     growth.map(growth => {
                         return <section key={`growth--${growth.id}`} className="growth">

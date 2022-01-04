@@ -61,7 +61,7 @@ export const EventForm = () => {
             <fieldset>
                 <div className="form-group">
                     <label htmlFor="notes">Notes: </label>
-                    <input type="text" name="notes" required autoFocus className="form-control"
+                    <input type="text" name="notes" required className="form-control"
                         value={currentEvent.notes}
                         onChange={changeEventState}
                     />
