@@ -3,6 +3,7 @@ import { useHistory, useParams } from 'react-router-dom'
 import { createAdventure, getAdventure, updateAdventure } from './AdventureManager.js'
 import { getHumans } from '../growth/GrowthManager.js'
 import { getLocations } from '../locations/LocationManager.js'
+import './Adventures.css'
 
 export const TestForm = () => {
     const history = useHistory()
@@ -150,7 +151,6 @@ export const TestForm = () => {
             </fieldset>
             <button onClick={(event) => {
                 event.preventDefault()
-
                 const adventure = {
                     title: currentAdventure.title,
                     date: currentAdventure.date,

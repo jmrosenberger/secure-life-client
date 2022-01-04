@@ -32,7 +32,7 @@ export const LocationList = (props) => {
     visitedLocations()
 
     return (
-        <article className="locations">
+        <article className="locations__container">
             <button className="btn-2 btn-sep icon-create"
                 onClick={() => {
                     history.push({ pathname: "/locations/new" })

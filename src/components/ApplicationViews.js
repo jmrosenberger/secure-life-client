@@ -6,7 +6,7 @@ import { LocationDetail } from "./locations/LocationDetail.js"
 import { GrowthForm } from "./growth/GrowthForm.js"
 import { GrowthList } from "./growth/GrowthList.js"
 import { GrowthDetail } from "./growth/GrowthDetails.js"
-import { TestForm } from "./adventures/TestForm.js"
+import { AdventureForm } from "./adventures/AdventureForm.js"
 import { AdventureList } from "./adventures/AdventureList.js"
 import { AdventureDetail } from "./adventures/AdventureDetail.js"
 import { EventList } from "./events/EventList.js"
@@ -49,13 +49,13 @@ export const ApplicationViews = () => {
                 <GrowthDetail />
             </Route>
             <Route exact path="/adventures/new">
-                <TestForm />
+                <AdventureForm />
             </Route>
             <Route exact path="/adventures">
                 <AdventureList />
             </Route>
             <Route exact path="/adventures/edit/:adventureId(\d+)">
-                <TestForm />
+                <AdventureForm />
             </Route>
             <Route exact path="/adventures/details/:adventureId(\d+)">
                 <AdventureDetail />

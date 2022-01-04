@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react"
 import { Link, useHistory, useParams } from "react-router-dom"
 import { getEvents } from "./EventManager.js"
-// import './Events.css'
+import './Events.css'
 
 export const EventList = (props) => {
     const history = useHistory()
@@ -15,7 +15,7 @@ export const EventList = (props) => {
 
 
     return (
-        <article className="events">
+        <article className="events__container">
             <h2>Events List</h2>
             <button className="btn-2 btn-sep icon-create"
                 onClick={() => {

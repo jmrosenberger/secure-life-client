@@ -48,6 +48,15 @@ export const deleteHuman = (id) => {
     })
 }
 
+export const deleteHumanImage = (id) => {
+    return fetch(`http://localhost:8000/humanimages/${id}`, {
+        method: "DELETE",
+        headers:{
+            "Authorization": `Token ${localStorage.getItem("sl_token")}`
+        }
+    })
+}
+
 export const uploadHumanImage = (image) => {
     return fetch("http://localhost:8000/humanimages", {
         method: "POST",
@@ -60,7 +69,7 @@ export const uploadHumanImage = (image) => {
 }
 
 export const getHumanImages = (humanId) => {
-    return fetch(`http://localhost:8000/Humanimages?humanId=${humanId}`, {
+    return fetch(`http://localhost:8000/humanimages?humanId=${humanId}`, {
         headers: {
             "Authorization": `Token ${localStorage.getItem("sl_token")}`
         }

@@ -15,7 +15,7 @@ export const PeopleList = (props) => {
 
 
     return (
-        <article className="humans">
+        <article className="humans__container">
             <h2>People in my Life</h2>
             <button className="btn-2 btn-sep icon-create"
                 onClick={() => {
