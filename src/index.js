@@ -6,6 +6,10 @@ import { SecureLife } from './components/SecureLife.js'
 import SSRProvider from 'react-bootstrap/SSRProvider'
 import '../node_modules/bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import '@fontsource/roboto/300.css';
+import '@fontsource/roboto/400.css';
+import '@fontsource/roboto/500.css';
+import '@fontsource/roboto/700.css';
 import './index.css'
 
 ReactDOM.render(

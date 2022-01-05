@@ -1,10 +1,9 @@
-.adventures__div {
+/* .adventures__div {
     border: 2px solid blue;
     padding: 4rem 35% 2rem 35%;
-    /* justify-content: center; */
-}
+} */
 
-.adventure--details {
+/* .adventure--details {
     display: flex;
     flex-direction: column;
     background: url("../images/man-on-watch.png");
@@ -15,23 +14,23 @@
     color: rgb(57, 110, 253);
     width: 97%;
     font-size: 1.5rem;
-}
-
+} */
+/* 
 .adventure__title {
     font-size: 1.75rem;
     font-weight: bolder;
     color: olivedrab;
     margin-bottom: 2rem;
-}
+} */
 
-
+/* 
 .btn__group {
     display: flex;
     justify-content: space-between;
     border: 2px solid orange;
     margin-top: 5rem;
-}
-
+} */
+/* 
 .btn__edit, 
 .btn__delete,
 .btn__return {
@@ -42,53 +41,87 @@
     border: 1px solid rgb(63, 114, 63);
     border-radius: 2px;
     color: rgb(68, 68, 192);
-}
+} */
 
-.adventure__images {
+/* .adventure__images {
     margin-top: 10rem;
-}
+} */
 
-.adventure__images h3 {
+/* .adventure__images h3 {
     font-size: xx-large;
     margin-bottom: 5rem;
-}
+} */
 
-.adventure__images input {
+/* .adventure__images input {
     margin-left: 2rem;
-}
-
-#adventure_image {
-    border: 2px solid rgba(64, 112, 243, 0.575);
-    border-radius: 2px;
+} */
+/* 
+#adventure_images {
     padding: .55rem;
     margin-right: 1rem;
-}
+} */
 
-.adventureImages {
+/* #adventure_images {
+    border: 2px solid rgba(64, 112, 243, 0.575);
+    border-radius: 2px;
+} */
+
+/* .adventureImages {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
     margin-top: 2rem;
     align-content: stretch;
     
-}
+} */
 
-.adventureImage {
+/* .adventureImage {
     margin: 1rem;
     width: 20%;
-}
+} */
 
-.adventureImage button {
+.adventureImages Button {
     float: right;
-    border: 1px solid black;
-    border-radius: 100%;
-    font-size: x-small;
+    font-size: small;
+    background-color: lightslategray;
     opacity: .65;
 }
 
-.adventureImage img {
+/* .adventureImage Image {
     float: right;
     border: 1px solid gray;
     border-radius: 2px;
+} */
+
+
+
+/*  BOOTSTRAP / MATERIAL UI */
+
+.details__containers {
+    border: 2px solid red;
 }
+
+.container__card {
+    border: 2px solid green;
+}
+
+.images__adventure {
+    margin-top: 30rem;
+}
+
+.images__list {
+    margin: 1rem;
+    display: inline;
+}
+
+.image__list Input {
+    margin: 2rem;
+}
+
+.header__images {
+    color: olivedrab;
+    padding-bottom: 3rem;
+}
+
+
 

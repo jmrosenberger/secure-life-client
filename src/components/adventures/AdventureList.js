@@ -6,6 +6,9 @@ import CardGroup from 'react-bootstrap/CardGroup'
 import Container from 'react-bootstrap/Container'
 import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
+import Typography from '@mui/material/Typography'
+import Button from '@mui/material/Button'
+import ButtonGroup from '@mui/material/ButtonGroup'
 import './AdventuresList.css'
 
 export const AdventureList = (props) => {
@@ -28,16 +31,20 @@ export const AdventureList = (props) => {
     return (
         <article className="container__adventuresList">
             <div className="div__adventuresList">
-                <h1>My Adventures</h1>
+                <Typography variant="h1" align='center' className="header__adventuresList">My Adventures</Typography>
                 <div className="btn__grouping">
-                    <button className="btn btn-primary"
-                        onClick={() => {
-                            history.push({ pathname: "/adventures/new" })
-                        }}
-                    >Create New Adventure</button>
-                    <button className="btn btn-secondary btn__link">
-                        <Link className="locations__link" to="/locations">Locations</Link>
-                    </button>
+                    <ButtonGroup variant="text" aria-label="text button group">
+                        <Button className="btn btn-primary"
+                            onClick={() => {
+                                history.push({ pathname: "/adventures/new" })
+                            }}
+                        >Create Adventure</Button>
+                        <Button className="btn btn-primary"
+                            onClick={() => {
+                                history.push({ pathname: "/locations" })
+                            }}
+                        >My Locations</Button>
+                    </ButtonGroup>
                 </div>
             </div>
             <Container fluid="sm, md, lg, xl, xxl" className="card__container">
