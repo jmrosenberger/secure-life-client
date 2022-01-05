@@ -3,7 +3,7 @@ import { useHistory, useParams } from 'react-router-dom'
 import { createAdventure, getAdventure, updateAdventure } from './AdventureManager.js'
 import { getHumans } from '../growth/GrowthManager.js'
 import { getLocations } from '../locations/LocationManager.js'
-import './Adventures.css'
+import './AdventuresList.css'
 
 export const TestForm = () => {
     const history = useHistory()

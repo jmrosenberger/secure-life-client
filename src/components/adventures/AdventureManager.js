@@ -76,3 +76,12 @@ export const getAdventureImages = (adventureId) => {
     })
         .then(res => res.json())
 }
+
+export const getImages = () => {
+    return fetch('http://localhost:8000/images', {
+        headers: {
+            "Authorization": `Token ${localStorage.getItem("sl_token")}`
+        }
+    })
+        .then(res => res.json())
+}

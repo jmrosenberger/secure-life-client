@@ -1,0 +1,94 @@
+.container__adventuresList {
+    background: url("../images/world-watch-9.png");
+    background-size: 100%;
+    background-attachment: fixed;
+    background-position: center;
+    /* background-repeat: no-repeat; */
+    /* position: fixed; */
+    height: 100%;
+    width: 100%;
+    margin-bottom: 20rem;
+}
+
+.div__adventuresList {
+    /* border: 5px solid pink; */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.div__adventuresList h1 {
+    /* border: 8px solid purple; */
+    margin-left: 35%;
+    margin-bottom: 5rem;
+    margin-top: 5rem;
+    color: olivedrab;
+    font-size: 3rem;
+}
+
+.div__adventuresList button {
+    /* border: 2px solid red; */
+    margin: 2rem;
+}
+
+.adventure {
+    display: flex;
+    flex-direction: column;
+    border: 2px solid rgba(88, 91, 54, 0.489);
+    border-radius: 1px;
+    padding: 1rem;
+    margin: 1rem .5rem;
+    background-color: rgba(143, 150, 94, 0.332);
+    color: rgba(199, 109, 109, 0.815);
+    width: 75%;
+}
+
+.adventure__title {
+    font-size: 1.25rem;
+    font-weight: bolder;
+    color: olive;
+}
+
+.btn__edit, .btn__delete {
+    width: 10rem;
+    margin: 1rem 0;
+    padding: .5rem;
+    color: olive;
+}
+
+.btn {
+    color: olivedrab;
+}
+
+.btn__grouping {
+    /* border: 2px solid orange; */
+    color: goldenrod;
+}
+
+
+/* STYLING FOR REACT-BOOTSTRAP CARDS */
+
+.card__container {
+    padding: 3rem;
+    /* border: 2px solid green; */
+}
+
+.card__row {
+    display: flex;
+    /* flex-direction: column; */
+    justify-content: space-evenly;
+    /* border: 2px solid red; */
+    padding: 2rem;
+}
+
+.card__col {
+    margin: 4rem 1.75rem;
+}
+
+.card__card {
+    text-align: center;
+}
+
+.card__title {
+    padding-bottom: 1.5rem;
+}
