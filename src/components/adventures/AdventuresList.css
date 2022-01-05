@@ -19,7 +19,6 @@
 
 .div__adventuresList h1 {
     /* border: 8px solid purple; */
-    margin-left: 35%;
     margin-bottom: 5rem;
     margin-top: 5rem;
     color: olivedrab;
@@ -28,7 +27,8 @@
 
 .div__adventuresList button {
     /* border: 2px solid red; */
-    margin: 2rem;
+    /* margin: 2rem; */
+    text-decoration: none;
 }
 
 .adventure {
@@ -39,7 +39,8 @@
     padding: 1rem;
     margin: 1rem .5rem;
     background-color: rgba(143, 150, 94, 0.332);
-    color: rgba(199, 109, 109, 0.815);
+    /* color: rgba(199, 109, 109, 0.815); */
+    color: goldenrod;
     width: 75%;
 }
 
@@ -83,6 +84,7 @@
 
 .card__col {
     margin: 4rem 1.75rem;
+    color: goldenrod;
 }
 
 .card__card {

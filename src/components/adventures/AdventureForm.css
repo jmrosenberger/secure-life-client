@@ -1,0 +1,32 @@
+.box__adventureForm {
+    margin-top: 10rem;
+}
+
+.header__adventureForm {
+    padding-bottom: 2rem;
+    color: rgba(0, 0, 255, 0.644);
+}
+
+.input__label {
+    margin: 4rem;
+}
+
+.input__input {
+    margin: 4rem;
+}
+
+.input__select {
+    width: 10rem;
+}
+
+.title__input,
+.title__label {
+    margin-left: 10rem;
+}
+
+.button__group__participants {
+    margin-left: 4rem;
+    margin-top: 1rem;
+    margin-bottom: 2rem;
+    color: olivedrab;
+}

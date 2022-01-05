@@ -2,6 +2,27 @@ import React, { useEffect, useState } from "react"
 import { useHistory, useParams } from "react-router-dom"
 import { getAdventureImages, uploadAdventureImage, deleteAdventure, deleteAdventureImage, getAdventure } from "./AdventureManager.js"
 import { confirmAlert } from "react-confirm-alert"
+import Container from 'react-bootstrap/Container'
+import Row from 'react-bootstrap/Row'
+import Col from 'react-bootstrap/Col'
+import Card from 'react-bootstrap/Card'
+import Image from "react-bootstrap/Image"
+// import FormControl from '@mui/material/FormControl'
+// import InputLabel from '@mui/material/InputLabel'
+import Box from '@mui/material/Box'
+// import MenuItem from '@mui/material/MenuItem'
+// import Select from '@mui/material/Select'
+// import Typography from '@mui/material/Typography'
+import ButtonGroup from '@mui/material/ButtonGroup'
+import Typography from '@mui/material/Typography'
+import Button from '@mui/material/Button'
+import Input from '@mui/material/Input'
+// import Container from '@mui/material/Container'
+import FilledInput from '@mui/material/FilledInput'
+// import OutlinedInput from '@mui/material/OutlinedInput'
+import ImageList from '@mui/material/ImageList'
+import ImageListItem from '@mui/material/ImageListItem'
+import ImageListItemBar from '@mui/material/ImageListItemBar'
 import "../react-confirm-alert.css"
 import "./AdventureDetail.css"
 
@@ -97,54 +118,60 @@ export const AdventureDetail = () => {
 
     return (
         <>
-            <main className="adventure__details">
-                <article className="details__container">
+            {/* <Box className="adventure__detailss"> */}
+                <Container className="details__containers">
                     {/* <h2>Adventure Details</h2> */}
-                    <section key={`adventure--${adventure?.id}`} className="adventure--details">
-                        <div className="adventure__title">{adventure?.title}</div>
-                        <div className="adventure__date">Date: {adventure?.date}</div><br />
-                        <div className="adventure__location">Location: {adventure?.location?.park} - {adventure?.location?.city}, {adventure?.location?.state}</div><br />
-                        <div className="adventure__participants">Participants: {
-                            adventure?.participants?.map(participant => {
-                                return participant.name
-                            }).join(", ")}</div><br />
-                        <div className="adventure__description">Notes: {adventure?.description}</div>
-                        <div className="btn__group">
-                            <button className="btn__edit"
-                                onClick={() => {
-                                    history.push({ pathname: `/adventures/edit/${adventure.id}` })
-                                }}>Edit Adventure</button>
-                            <button className="btn__delete"
-                                onClick={() => {
-                                    confirmDelete(adventure.id)
-                                }}>Delete Adventure</button>
-                            <button className="btn__return"
-                                onClick={() => {
-                                    history.push({ pathname: `/adventures` })
-                                }}>Return to Adventures</button>
-                        </div>
-                    </section>
-                </article>
-                <div className="adventure__images">
-                    <h3>Adventure Images</h3>
-                    <input type="file" id="adventure_image" onChange={createAdventureImageString} />
-                    <input type="hidden" name="adventure_id" value={adventure.id} />
-                    <button onClick={createImage}>Upload</button>
-                    <div className="adventureImages">
-                        {adventureImages?.map(img => {
-                            return <>
-                                <div className="adventureImage">
-                                    <button className="btn__deleteImage"
+                    <Card key={`adventure--${adventure?.id}`} className="bg-light text-blue container__card">
+                        <Card.Img src="./images/man-on-watch.png" alt="Card image" />
+                        <Card.ImgOverlay>
+                            <Card.Title className="adventure__titles">{adventure?.title}</Card.Title>
+                            <Card.Text className="adventure__dates">Date: {adventure?.date}</Card.Text>
+                            <Card.Text className="adventure__locations">Location: {adventure?.location?.park} - {adventure?.location?.city}, {adventure?.location?.state}</Card.Text>
+                            <Card.Text className="adventure__participantss">Participants: {
+                                adventure?.participants?.map(participant => {
+                                    return participant.name
+                                }).join(", ")}</Card.Text>
+                            <Card.Text className="adventure__descriptions">Notes: {adventure?.description}</Card.Text>
+                            <Card.Text className="btn__groups">
+                                <ButtonGroup>
+
+                                    <Button className="btn__edits"
                                         onClick={() => {
-                                            confirmDeleteImage(img.id)
-                                        }}>x</button>
-                                    <img src={img?.action_pic} width="100%" alt={`adventure-${img?.action_pic}`} />
-                                </div>
-                            </>
-                        })}
-                    </div>
-                </div>
-            </main>
+                                            history.push({ pathname: `/adventures/edit/${adventure.id}` })
+                                        }}>Edit Adventure</Button>
+                                    <Button className="btn__deletes"
+                                        onClick={() => {
+                                            confirmDelete(adventure.id)
+                                        }}>Delete Adventure</Button>
+                                    <Button className="btn__returns"
+                                        onClick={() => {
+                                            history.push({ pathname: `/adventures` })
+                                        }}>Return to Adventures</Button>
+                                </ButtonGroup>
+                            </Card.Text>
+                        </Card.ImgOverlay>
+                    </Card>
+                </Container>
+                <Container fluid className="images__adventure">
+                    <Typography align="center" className="header__images" variant="h3">Adventure Images</Typography>
+                    <ImageList variant="masonry" cols={3} gap={8} className="images__list">
+                        <FilledInput type="file" id="adventure_images" onChange={createAdventureImageString} />
+                        <FilledInput type="hidden" name="adventure_id" value={adventure.id} />
+                        <Button onClick={createImage}>Upload</Button>
+                            {adventureImages?.map(img => {
+                                return <>
+                                    <ImageListItem key={img.id} className="adventureImages">
+                                        <Button className="btn__deletesImages"
+                                            onClick={() => {
+                                                confirmDeleteImage(img.id)
+                                            }}>x</Button>
+                                        <Image src={img?.action_pic} width="100%" fluid alt={`adventure-${img?.action_pic}`} />
+                                    </ImageListItem>
+                                </>
+                            }).reverse()}
+                    </ImageList>
+                </Container>
+            {/* </Box> */}
         </>
     )
 }
