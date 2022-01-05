@@ -6,7 +6,7 @@ import { getLocations } from '../locations/LocationManager.js'
 import ToggleButtonGroup from 'react-bootstrap/ToggleButtonGroup'
 import ToggleButton from 'react-bootstrap/ToggleButton'
 import Button from 'react-bootstrap/Button'
-import './Adventures.css'
+import './AdventuresList.css'
 
 export const AdventureForm = () => {
     const history = useHistory()

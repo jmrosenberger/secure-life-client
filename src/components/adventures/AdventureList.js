@@ -1,11 +1,17 @@
 import React, { useEffect, useState } from "react"
 import { Link, useHistory, useParams } from "react-router-dom"
-import { getAdventures } from "./AdventureManager.js"
-import './Adventures.css'
+import { getAdventures, getImages } from "./AdventureManager.js"
+import Card from 'react-bootstrap/Card'
+import CardGroup from 'react-bootstrap/CardGroup'
+import Container from 'react-bootstrap/Container'
+import Row from 'react-bootstrap/Row'
+import Col from 'react-bootstrap/Col'
+import './AdventuresList.css'
 
 export const AdventureList = (props) => {
     const history = useHistory()
     const [adventures, setAdventures] = useState([])
+    const [images, setImages] = useState([])
     const { adventureId } = useParams()
 
     useEffect(() => {
@@ -14,27 +20,60 @@ export const AdventureList = (props) => {
     }, [])
 
 
-    return (
-        <article className="adventures__container">
-            <h2>Adventures List</h2>
-            <button className="btn-2 btn-sep icon-create"
-                onClick={() => {
-                    history.push({ pathname: "/adventures/new" })
-                }}
-            >Create New Adventure</button>
-            <button className="btn btn-primary btn-4 btn__link">
-                <Link className="locations__link" to="/locations">Locations</Link>
-            </button>
-            {
-                adventures.map(adventure => {
-                    return <section key={`adventure--${adventure.id}`} className="adventure">
-                        <div className="adventure__title">{adventure?.title}</div>
-                        <div className="adventure__date">Date: {adventure?.date}</div>
-                        <Link to={`adventures/details/${adventure.id}`}>Details</Link>
-                    </section>
+    useEffect(() => {
+        getImages()
+            .then(data => setImages(data))
+    }, [])
 
-                }).reverse()
-            }
+    return (
+        <article className="container__adventuresList">
+            <div className="div__adventuresList">
+                <h1>My Adventures</h1>
+                <div className="btn__grouping">
+                    <button className="btn btn-primary"
+                        onClick={() => {
+                            history.push({ pathname: "/adventures/new" })
+                        }}
+                    >Create New Adventure</button>
+                    <button className="btn btn-secondary btn__link">
+                        <Link className="locations__link" to="/locations">Locations</Link>
+                    </button>
+                </div>
+            </div>
+            <Container fluid="sm, md, lg, xl, xxl" className="card__container">
+                <Row xs={1} md={3} lg={4} xl={5} className="card__row">
+                    {adventures.map((adventure) => (
+                        <Col className="adventure card__col" key={`adventure--${adventure.id}`}>
+                            <Card className="card__card">
+                                <Card.Img variant="top" src='' />
+                                <Card.Body className="card__body">
+                                    <Card.Title as="h3" className="adventure__title card__title">{adventure?.title}</Card.Title>
+                                    <Card.Text className="adventure__date card__text">
+                                        {adventure?.date}
+                                    </Card.Text>
+                                    <Link to={`adventures/details/${adventure.id}`} className="card__link">Details</Link>
+                                </Card.Body>
+                            </Card>
+                        </Col>
+                    )).reverse()}
+                </Row>
+            </Container>
+            {/* <Row xs={1} md={2} lg={3} className="g-4">
+                {images.map((img) => (
+                    <Col className="adventure" key={`adventure--${img.adventure.id}`}>
+                        <Card>
+                            <Card.Img variant="top" src={img.action_pic} size={`100px`}  className="img-fluid" />
+                            <Card.Body>
+                                <Card.Title className="adventure__title">{img.adventure?.title}</Card.Title>
+                                <Card.Text className="adventure__date">
+                                    {img.adventure?.date}
+                                </Card.Text>
+                                <Link to={`adventures/details/${img.adventure.id}`}>Details</Link>
+                            </Card.Body>
+                        </Card>
+                    </Col>
+                ))}
+            </Row> */}
 
         </article>
 
