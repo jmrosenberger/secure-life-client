@@ -25,6 +25,11 @@ import ImageListItem from '@mui/material/ImageListItem'
 import ImageListItemBar from '@mui/material/ImageListItemBar'
 import "../react-confirm-alert.css"
 import "./AdventureDetail.css"
+import man from "../images/man-on-watch.png" 
+
+
+console.log(man)
+
 
 
 export const AdventureDetail = () => {
@@ -119,12 +124,13 @@ export const AdventureDetail = () => {
     return (
         <>
             {/* <Box className="adventure__detailss"> */}
-                <Container className="details__containers">
-                    {/* <h2>Adventure Details</h2> */}
-                    <Card key={`adventure--${adventure?.id}`} className="bg-light text-blue container__card">
-                        <Card.Img src="./images/man-on-watch.png" alt="Card image" />
-                        <Card.ImgOverlay>
-                            <Card.Title className="adventure__titles">{adventure?.title}</Card.Title>
+            <Container className="details__containers">
+                {/* <h2>Adventure Details</h2> */}
+                <Card key={`adventure--${adventure?.id}`} text="primary" body className="bg-light text-blue container__card">
+                    <Card.Body>
+                        {/* <Card.ImgOverlay> */}
+                            <Card.Img src={man} alt="man" className="card__image" />
+                            <Card.Title className="adventure__titles"><h2>{adventure?.title}</h2></Card.Title>
                             <Card.Text className="adventure__dates">Date: {adventure?.date}</Card.Text>
                             <Card.Text className="adventure__locations">Location: {adventure?.location?.park} - {adventure?.location?.city}, {adventure?.location?.state}</Card.Text>
                             <Card.Text className="adventure__participantss">Participants: {
@@ -134,7 +140,6 @@ export const AdventureDetail = () => {
                             <Card.Text className="adventure__descriptions">Notes: {adventure?.description}</Card.Text>
                             <Card.Text className="btn__groups">
                                 <ButtonGroup>
-
                                     <Button className="btn__edits"
                                         onClick={() => {
                                             history.push({ pathname: `/adventures/edit/${adventure.id}` })
@@ -149,28 +154,29 @@ export const AdventureDetail = () => {
                                         }}>Return to Adventures</Button>
                                 </ButtonGroup>
                             </Card.Text>
-                        </Card.ImgOverlay>
-                    </Card>
-                </Container>
-                <Container fluid className="images__adventure">
-                    <Typography align="center" className="header__images" variant="h3">Adventure Images</Typography>
-                    <ImageList variant="masonry" cols={3} gap={8} className="images__list">
-                        <FilledInput type="file" id="adventure_images" onChange={createAdventureImageString} />
-                        <FilledInput type="hidden" name="adventure_id" value={adventure.id} />
-                        <Button onClick={createImage}>Upload</Button>
-                            {adventureImages?.map(img => {
-                                return <>
-                                    <ImageListItem key={img.id} className="adventureImages">
-                                        <Button className="btn__deletesImages"
-                                            onClick={() => {
-                                                confirmDeleteImage(img.id)
-                                            }}>x</Button>
-                                        <Image src={img?.action_pic} width="100%" fluid alt={`adventure-${img?.action_pic}`} />
-                                    </ImageListItem>
-                                </>
-                            }).reverse()}
-                    </ImageList>
-                </Container>
+                        {/* </Card.ImgOverlay> */}
+                    </Card.Body>
+                </Card>
+            </Container>
+            <Container fluid className="images__adventure">
+                <Typography align="center" className="header__images" variant="h3">Adventure Images</Typography>
+                <ImageList variant="masonry" cols={3} gap={8} className="images__list">
+                    <FilledInput type="file" id="adventure_images" onChange={createAdventureImageString} />
+                    <FilledInput type="hidden" name="adventure_id" value={adventure.id} />
+                    <Button onClick={createImage}>Upload</Button>
+                    {adventureImages?.map(img => {
+                        return <>
+                            <ImageListItem key={img.id} className="adventureImages">
+                                <Button className="btn__deletesImages"
+                                    onClick={() => {
+                                        confirmDeleteImage(img.id)
+                                    }}>x</Button>
+                                <Image src={img?.action_pic} width="100%" fluid alt={`adventure-${img?.action_pic}`} />
+                            </ImageListItem>
+                        </>
+                    }).reverse()}
+                </ImageList>
+            </Container>
             {/* </Box> */}
         </>
     )
