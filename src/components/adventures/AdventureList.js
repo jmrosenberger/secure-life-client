@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react"
 import { Link, useHistory, useParams } from "react-router-dom"
 import { getAdventures, getImages } from "./AdventureManager.js"
 import Card from 'react-bootstrap/Card'
-import CardGroup from 'react-bootstrap/CardGroup'
 import Container from 'react-bootstrap/Container'
 import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
@@ -65,24 +64,6 @@ export const AdventureList = (props) => {
                     )).reverse()}
                 </Row>
             </Container>
-            {/* <Row xs={1} md={2} lg={3} className="g-4">
-                {images.map((img) => (
-                    <Col className="adventure" key={`adventure--${img.adventure.id}`}>
-                        <Card>
-                            <Card.Img variant="top" src={img.action_pic} size={`100px`}  className="img-fluid" />
-                            <Card.Body>
-                                <Card.Title className="adventure__title">{img.adventure?.title}</Card.Title>
-                                <Card.Text className="adventure__date">
-                                    {img.adventure?.date}
-                                </Card.Text>
-                                <Link to={`adventures/details/${img.adventure.id}`}>Details</Link>
-                            </Card.Body>
-                        </Card>
-                    </Col>
-                ))}
-            </Row> */}
-
         </article>
-
     )
 }

@@ -1,0 +1,15 @@
+.containers__home {
+    color: olivedrab;
+    padding-top: 25%;
+    margin: 1rem;
+}
+
+.btns__grouping {
+    justify-content: center;
+    /* border: 2px solid red; */
+    padding-top: 2rem;
+}
+
+.btns__home {
+    padding-left: 40%;
+}

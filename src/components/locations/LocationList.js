@@ -2,6 +2,13 @@ import React, { useEffect, useState } from "react"
 import { Link, useHistory, useParams } from "react-router-dom"
 import { getLocations } from "./LocationManager.js"
 import { getAdventures } from "../adventures/AdventureManager.js"
+import Card from 'react-bootstrap/Card'
+import Container from 'react-bootstrap/Container'
+import Row from 'react-bootstrap/Row'
+import Col from 'react-bootstrap/Col'
+import Typography from '@mui/material/Typography'
+import Button from '@mui/material/Button'
+import ButtonGroup from '@mui/material/ButtonGroup'
 import './Locations.css'
 
 export const LocationList = (props) => {
@@ -20,9 +27,9 @@ export const LocationList = (props) => {
     }, [])
 
     const visitedLocations = (location) => {
-        for(location of locations){
+        for (location of locations) {
             adventures.map(adventure => {
-                if (adventure.location.id === location.id){
+                if (adventure.location.id === location.id) {
                     location.is_visited = true
                 }
             })
@@ -32,43 +39,63 @@ export const LocationList = (props) => {
     visitedLocations()
 
     return (
-        <article className="locations__container">
-            <button className="btn-2 btn-sep icon-create"
-                onClick={() => {
-                    history.push({ pathname: "/locations/new" })
-                }}
-            >Add New Location To Bucket List</button>
-
-            <h2 className="places_visited">Places I've Been</h2>
-            {
-                locations.map(location => {
-                    if (location.is_visited === true) {
-                        return <section key={`location--${location.id}`} className="location">
-                            <div className="location__park">Name of Park: {location?.park}</div>
-                            <div className="location__city">City: {location?.city}</div>
-                            <div className="location__state">State: {location?.state}</div>
-                            <Link to={`locations/details/${location.id}`}>Location Details</Link>
-                        </section>
-                    } 
-
-                })
-            }
-            <h2 className="bucket_list">Bucket List</h2>
-            {
-                locations.map(location => {
-                    if (location.is_visited === false) {
-                        return <section key={`location--${location.id}`} className="location">
-                            <div className="location__park">Name of Park: {location?.park}</div>
-                            <div className="location__city">City: {location?.city}</div>
-                            <div className="location__state">State: {location?.state}</div>
-                            <Link to={`locations/details/${location.id}`}>Location Details</Link>
-                        </section>
-                    }
-
-                })
-            }
-
-        </article>
-
+        <Container className="locations__container">
+            <Container className="div__locationList">
+                <ButtonGroup variant="text" aria-label="text button group">
+                    <Button className="btn-2 btn-sep icon-create"
+                        onClick={() => {
+                            history.push({ pathname: "/locations/new" })
+                        }}
+                    >Add New Location To Bucket List</Button>
+                </ButtonGroup>
+            </Container>
+            <Typography variant="h3" align='center' className="header__locationList">Places I've Been</Typography>
+            <Container className="main__body">
+                <Container fluid="sm, md, lg, xl, xxl" className="card__container">
+                    <Row xs={1} md={3} lg={4} xl={5} className="card__row">
+                        {
+                            locations.map(location => {
+                                if (location.is_visited === true) {
+                                    return <Col key={`location--${location.id}`} className="location">
+                                        <Card className="card__card">
+                                            <Card.Body className="card__body">
+                                                <Card.Title className="location__park">Name of Park: {location?.park}</Card.Title>
+                                                <Card.Text className="location__city">City: {location?.city}</Card.Text>
+                                                <Card.Text className="location__state">State: {location?.state}</Card.Text>
+                                                <Link to={`locations/details/${location.id}`}>Location Details</Link>
+                                            </Card.Body>
+                                        </Card>
+                                    </Col>
+                                }
+                            })
+                        }
+                    </Row>
+                </Container>
+            </Container>
+            <hr></hr>
+            <Typography variant="h3" align='center' className="header__locationList">Bucket List</Typography>
+            <Container>
+                <Container fluid="sm, md, lg, xl, xxl" className="card__container">
+                    <Row xs={1} md={3} lg={4} xl={5} className="card__row">
+                        {
+                            locations.map(location => {
+                                if (location.is_visited !== true) {
+                                    return <Col key={`location--${location.id}`} className="location">
+                                        <Card className="card__card">
+                                            <Card.Body className="card__body">
+                                                <Card.Title className="location__park">Name of Park: {location?.park}</Card.Title>
+                                                <Card.Text className="location__city">City: {location?.city}</Card.Text>
+                                                <Card.Text className="location__state">State: {location?.state}</Card.Text>
+                                                <Link to={`locations/details/${location.id}`}>Location Details</Link>
+                                            </Card.Body>
+                                        </Card>
+                                    </Col>
+                                }
+                            })
+                        }
+                    </Row>
+                </Container>
+            </Container>
+        </Container>
     )
 }

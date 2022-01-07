@@ -1,92 +1,9 @@
-/* .adventures__div {
-    border: 2px solid blue;
-    padding: 4rem 35% 2rem 35%;
-} */
-
-/* .adventure--details {
-    display: flex;
-    flex-direction: column;
-    background: url("../images/man-on-watch.png");
-    background-size: 100%;
-    border: 2px solid rgb(194, 147, 95);
-    border-radius: 3px;
-    padding: 1rem;
-    color: rgb(57, 110, 253);
-    width: 97%;
-    font-size: 1.5rem;
-} */
-
-
-/* 
-.btn__group {
-    display: flex;
-    justify-content: space-between;
-    border: 2px solid orange;
-    margin-top: 5rem;
-} */
-/* 
-.btn__edit, 
-.btn__delete,
-.btn__return {
-    margin: 2rem 0;
-    padding: .5rem;
-    font-size: small;
-    font-weight: 700;
-    border: 1px solid rgb(63, 114, 63);
-    border-radius: 2px;
-    color: rgb(68, 68, 192);
-} */
-
-/* .adventure__images {
-    margin-top: 10rem;
-} */
-
-/* .adventure__images h3 {
-    font-size: xx-large;
-    margin-bottom: 5rem;
-} */
-
-/* .adventure__images input {
-    margin-left: 2rem;
-} */
-/* 
-#adventure_images {
-    padding: .55rem;
-    margin-right: 1rem;
-} */
-
-/* #adventure_images {
-    border: 2px solid rgba(64, 112, 243, 0.575);
-    border-radius: 2px;
-} */
-
-/* .adventureImages {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    margin-top: 2rem;
-    align-content: stretch;
-    
-} */
-
-/* .adventureImage {
-    margin: 1rem;
-    width: 20%;
-} */
-
 .adventureImages Button {
     float: right;
     font-size: small;
     background-color: lightslategray;
     opacity: .65;
 }
-
-/* .adventureImage Image {
-    float: right;
-    border: 1px solid gray;
-    border-radius: 2px;
-} */
-
 
 
 /*  BOOTSTRAP / MATERIAL UI */
@@ -98,12 +15,8 @@
 }
 
 .images__list {
-    margin: 1rem;
+    margin: 8rem 1rem;
     display: inline;
-}
-
-.image__list Input {
-    margin: 2rem;
 }
 
 .header__images {
@@ -123,5 +36,9 @@
     font-size: 2.75rem;
     font-weight: bolder;
     color: olivedrab;
+}
+
+.adventureImages {
+    margin: 8rem 2rem;
 }
 

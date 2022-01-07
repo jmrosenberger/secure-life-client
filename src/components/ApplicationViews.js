@@ -15,6 +15,7 @@ import { EventDetail } from "./events/EventDetail.js"
 import { PeopleList } from "./people/PeopleList.js"
 import { PeopleForm } from "./people/PeopleForm.js"
 import { PeopleDetail } from "./people/PeopleDetail.js"
+import { Home } from "./nav/Home.js"
 // import { Profile } from "./auth/Profile.js"
 
 
@@ -84,9 +85,9 @@ export const ApplicationViews = () => {
             <Route exact path="/humans/details/:humanId(\d+)">
                 <PeopleDetail />
             </Route>
-            {/* <Route exact path="/profile">
-                <Profile />
-            </Route> */}
+            <Route exact path="/">
+                <Home />
+            </Route>
         </main>
     </>
 }

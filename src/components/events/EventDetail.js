@@ -2,6 +2,15 @@ import React, { useEffect, useState } from "react"
 import { useHistory, useParams } from "react-router-dom"
 import { getEventImages, uploadEventImage, deleteEvent, deleteEventImage, getEvent } from "./EventManager.js"
 import { confirmAlert } from "react-confirm-alert"
+import Container from 'react-bootstrap/Container'
+import Card from 'react-bootstrap/Card'
+import Image from "react-bootstrap/Image"
+import ButtonGroup from '@mui/material/ButtonGroup'
+import Typography from '@mui/material/Typography'
+import Button from '@mui/material/Button'
+import FilledInput from '@mui/material/FilledInput'
+import ImageList from '@mui/material/ImageList'
+import ImageListItem from '@mui/material/ImageListItem'
 import "../react-confirm-alert.css"
 import "./EventDetail.css"
 
@@ -98,47 +107,51 @@ export const EventDetail = () => {
 
     return (
         <>
-            <div className="event__details">
-                <h2>Event Details</h2>
-                <section key={`event--${event?.id}`} className="event--details">
-                    <div className="event__title">{event?.title}</div>
-                    <div className="event__date">Date: {event?.date}</div>
-                    <div className="event__notes">Notes: {event?.notes}</div>
-                    <div className="btn__group">
-                        <button className="btn__edit"
-                            onClick={() => {
-                                history.push({ pathname: `/events/edit/${event.id}` })
-                            }}>Edit Event</button>
-                        <button className="btn__delete"
-                            onClick={() => {
-                                confirmDelete(event.id)
-                            }}>Delete Event</button>
-                        <button className="btn__return"
-                            onClick={() => {
-                                history.push({ pathname: `/events` })
-                            }}>Return to Events</button>
-                    </div>
-                    <div className="event__images">
-                        <h3>Event Images</h3>
-                        <input type="file" id="event_image" onChange={createEventImageString} />
-                        <input type="hidden" name="event_id" value={event.id} />
-                        <button onClick={createImage}>Upload</button>
-                        <div className="eventImages">
-                            {eventImages?.map(img => {
-                                return <>
-                                    <div className="eventImage">
-                                        <button className="btn__deleteImage"
-                                            onClick={() => {
-                                                confirmDeleteImage(img.id)
-                                            }}>x</button>
-                                        <img src={img?.action_pic} width="100%" alt={`event-${img?.action_pic}`} />
-                                    </div>
-                                </>
-                            })}
-                        </div>
-                    </div>
-                </section>
-            </div>
+            <Container className="event__details">
+                <Typography variant="h2" className="header__event" align="center">Event Details</Typography>
+                <Card key={`event--${event?.id}`} className="event--details bg-light container__card">
+                    <Card.Body>
+                        <Card.Title className="event__title">
+                            <Typography variant="h5" className="event__header">{event?.title}</Typography>
+                        </Card.Title>
+                        <Card.Text className="event__date">Date: {event?.date}</Card.Text>
+                        <Card.Text className="event__notes">Notes: {event?.notes}</Card.Text>
+                        <ButtonGroup className="btn__group">
+                            <Button className="btn__edit"
+                                onClick={() => {
+                                    history.push({ pathname: `/events/edit/${event.id}` })
+                                }}>Edit Event</Button>
+                            <Button className="btn__delete"
+                                onClick={() => {
+                                    confirmDelete(event.id)
+                                }}>Delete Event</Button>
+                            <Button className="btn__return"
+                                onClick={() => {
+                                    history.push({ pathname: `/events` })
+                                }}>Return to Events</Button>
+                        </ButtonGroup>
+                    </Card.Body>
+                </Card>
+            </Container>
+            <Container className="container__images">
+                <Typography variant="h4" className="header__event" align="center">Event Images</Typography>
+                <ImageList variant="masonry" cols={3} gap={8} className="images__list">
+                    <FilledInput type="file" id="event_image" onChange={createEventImageString} />
+                    <FilledInput type="hidden" name="event_id" value={event.id} />
+                    <Button onClick={createImage}>Upload</Button>
+                        {eventImages?.map(img => {
+                            return <>
+                                <ImageListItem className="eventImages">
+                                    <Button className="btn__deleteImage"
+                                        onClick={() => {
+                                            confirmDeleteImage(img.id)
+                                        }}>x</Button>
+                                    <Image src={img?.action_pic} width="100%" alt={`event-${img?.action_pic}`} />
+                                </ImageListItem>
+                            </>
+                        }).reverse()}
+                </ImageList>
+            </Container>
         </>
     )
 }

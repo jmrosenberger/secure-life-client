@@ -1,15 +1,35 @@
-.location {
-    display: flex;
-    flex-direction: column;
-    width: 75%;
-    border: 2px solid lightcoral;
-    border-radius: 8px;
-    padding: 1rem;
-    margin: 1rem 0;
-    background-color: rgba(0, 255, 255, 0.428);
-    color: rgb(251, 79, 79);
+.locations__container {
+    padding-top: 5rem;
 }
 
-.btn__delete {
-    width: 10rem;
+.header__locationList {
+    font-size: 3rem;
+    padding-bottom: 5rem;
+    padding-top: 8rem;
+    color: olivedrab;
+}
+
+.location {
+    border: 2px solid rgba(88, 91, 54, 0.489);
+    border-radius: 1px;
+    padding: 1rem;
+    margin: 1rem .5rem;
+    background-color: rgba(143, 150, 94, 0.332);
+    color: goldenrod;
+    width: 75%;
+}
+
+.btn {
+    color: olivedrab;
+}
+
+
+/* STYLING FOR REACT-BOOTSTRAP CARDS */
+
+.card__container {
+    padding: 3rem;
+}
+
+hr {
+    color: olivedrab;
 }

@@ -2,6 +2,16 @@ import React, { useEffect, useState } from "react"
 import { useHistory, useParams } from "react-router-dom"
 import { deleteHuman, getHuman, uploadHumanImage, deleteHumanImage, getHumanImages } from "./PeopleManager.js"
 import { confirmAlert } from "react-confirm-alert"
+import Container from 'react-bootstrap/Container'
+import Card from 'react-bootstrap/Card'
+import Image from "react-bootstrap/Image"
+import ButtonGroup from '@mui/material/ButtonGroup'
+import Typography from '@mui/material/Typography'
+import Button from '@mui/material/Button'
+import FilledInput from '@mui/material/FilledInput'
+import ImageList from '@mui/material/ImageList'
+import ImageListItem from '@mui/material/ImageListItem'
+import ImageListItemBar from '@mui/material/ImageListItemBar'
 import "../react-confirm-alert.css"
 import "./PeopleDetail.css"
 
@@ -96,47 +106,51 @@ export const PeopleDetail = () => {
 
     return (
         <>
-            <div className="human__details">
-                <h2>Human Details</h2>
-                <section key={`human--${human?.id}`} className="human--details">
-                    <div className="human__name human__item">{human?.name}</div>
-                    <div className="human__birthday human__item">Birthday: {human?.birthday}</div>
-                    <div className="human__age human__item">Age: {human?.age}</div>
-                    <div className="btn__group">
-                        <button className="btn__edit"
-                            onClick={() => {
-                                history.push({ pathname: `/humans/edit/${human.id}` })
-                            }}>Edit</button>
-                        <button className="btn__delete"
-                            onClick={() => {
-                                confirmDelete(human.id)
-                            }}>Remove Person from List</button>
-                        <button className="btn__return"
-                            onClick={() => {
-                                history.push({ pathname: `/humans` })
-                            }}>Go Back to My People</button>
-                    </div>
-                    <div className="human__images">
-                        <h3>Profile Images</h3>
-                        <input type="file" id="human_image" onChange={createHumanImageString} />
-                        <input type="hidden" name="human_id" value={human.id} />
-                        <button onClick={createImage}>Upload</button>
-                        <div className="humanImages">
-                            {humanImages?.map(img => {
-                                return <>
-                                    <div className="humanImage">
-                                        <button className="btn__deleteImage"
-                                            onClick={() => {
-                                                confirmDeleteImage(img.id)
-                                            }}>x</button>
-                                        <img src={img?.action_pic} width="100%" alt={`human-${img?.action_pic}`} />
-                                    </div>
-                                </>
-                            })}
-                        </div>
-                    </div>
-                </section>
-            </div>
+            <Container className="human__details">
+                <Typography variant="h2" className="header__human" align="center">Personal Details</Typography>
+                <Card key={`human--${human?.id}`} className="human--details bg-light container__card">
+                    <Card.Body>
+                        <Card.Title className="human__name human__item">
+                            <Typography variant="h5" className="human__header">{human?.name}</Typography>
+                        </Card.Title>
+                        <Card.Text className="human__birthday human__item">Birthday: {human?.birthday}</Card.Text>
+                        <Card.Text className="human__age human__item">Age: {human?.age}</Card.Text>
+                        <ButtonGroup className="btn__group">
+                            <Button className="btn__edit"
+                                onClick={() => {
+                                    history.push({ pathname: `/humans/edit/${human.id}` })
+                                }}>Edit</Button>
+                            <Button className="btn__delete"
+                                onClick={() => {
+                                    confirmDelete(human.id)
+                                }}>Remove Person from List</Button>
+                            <Button className="btn__return"
+                                onClick={() => {
+                                    history.push({ pathname: `/humans` })
+                                }}>Go Back to My People</Button>
+                        </ButtonGroup>
+                    </Card.Body>
+                </Card>
+            </Container>
+            <Container className="container__images">
+                <Typography variant="h4" className="header__human" align="center">Profile Images</Typography>
+                <ImageList variant="masonry" cols={3} gap={8} className="images__list">
+                    <FilledInput type="file" id="human_image" onChange={createHumanImageString} />
+                    <FilledInput type="hidden" name="human_id" value={human.id} />
+                    <Button onClick={createImage}>Upload</Button>
+                    {humanImages?.map(img => {
+                        return <>
+                            <ImageListItem key={img.id} className="humanImages">
+                                <Button className="btn__deleteImage"
+                                    onClick={() => {
+                                        confirmDeleteImage(img.id)
+                                    }}>x</Button>
+                                <Image src={img?.action_pic} width="100%" alt={`human-${img?.action_pic}`} />
+                            </ImageListItem>
+                        </>
+                    }).reverse()}
+                </ImageList>
+            </Container>
         </>
     )
 }
