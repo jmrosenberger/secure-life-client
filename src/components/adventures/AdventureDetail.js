@@ -126,7 +126,7 @@ export const AdventureDetail = () => {
                 <Card key={`adventure--${adventure?.id}`} text="primary" body className="bg-light text-blue container__card">
                     <Card.Body>
                         {/* <Card.ImgOverlay> */}
-                            <Card.Img src={man} alt="man" className="card__image" />
+                            {/* <Card.Img src={man} alt="man" className="card__image" /> */}
                             <Card.Title className="adventure__titles"><h2>{adventure?.title}</h2></Card.Title>
                             <Card.Text className="adventure__dates">Date: {adventure?.date}</Card.Text>
                             <Card.Text className="adventure__locations">Location: {adventure?.location?.park} - {adventure?.location?.city}, {adventure?.location?.state}</Card.Text>
