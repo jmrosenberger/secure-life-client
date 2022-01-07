@@ -58,8 +58,8 @@ export const PeopleDetail = () => {
 
     const deleteImage = (imageId) => {
         deleteHumanImage(imageId)
-            .then(setTimeout(() => history.push({ pathname: `/humans/details/${humanId}` }), 50))
-            .then(setTimeout(() => getImages(), 200))
+            .then(setTimeout(() => history.push({ pathname: `/humans/details/${humanId}` }), 200))
+            .then(setTimeout(() => getImages(), 350))
     }
 
     const confirmDeleteImage = (id) => {
