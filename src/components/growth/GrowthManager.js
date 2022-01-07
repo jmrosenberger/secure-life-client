@@ -1,5 +1,5 @@
 export const getGrowthList = () => {
-    return fetch("http://localhost:8000/growth", {
+    return fetch("https://secure-life.herokuapp.com/growth", {
         headers:{
             "Authorization": `Token ${localStorage.getItem("sl_token")}`
         }
@@ -8,7 +8,7 @@ export const getGrowthList = () => {
 }
 
 export const filterGrowth = (filterDisplay) => {
-    return fetch(`http://localhost:8000/growth?human=${filterDisplay}`, {
+    return fetch(`https://secure-life.herokuapp.com/growth?human=${filterDisplay}`, {
         headers:{
             "Authorization": `Token ${localStorage.getItem("sl_token")}`
         }
@@ -17,7 +17,7 @@ export const filterGrowth = (filterDisplay) => {
 }
 
 export const getGrowth = (growthId) => {
-    return fetch(`http://localhost:8000/growth/${growthId}`, {
+    return fetch(`https://secure-life.herokuapp.com/growth/${growthId}`, {
         headers:{
             "Authorization": `Token ${localStorage.getItem("sl_token")}`,
         }
@@ -26,7 +26,7 @@ export const getGrowth = (growthId) => {
 }
 
 export const getHumans = () => {
-    return fetch("http://localhost:8000/humans", {
+    return fetch("https://secure-life.herokuapp.com/humans", {
         headers:{
             "Authorization": `Token ${localStorage.getItem("sl_token")}`
         }
@@ -35,7 +35,7 @@ export const getHumans = () => {
 }
 
 export const getHuman = (humanId) => {
-    return fetch(`http://localhost:8000/humans/${humanId}`, {
+    return fetch(`https://secure-life.herokuapp.com/humans/${humanId}`, {
         headers:{
             "Authorization": `Token ${localStorage.getItem("sl_token")}`,
         }
@@ -44,7 +44,7 @@ export const getHuman = (humanId) => {
 }
 
 export const createGrowth = (growth) => {
-    return fetch("http://localhost:8000/growth", {
+    return fetch("https://secure-life.herokuapp.com/growth", {
         method: "POST",
         headers:{
             "Authorization": `Token ${localStorage.getItem("sl_token")}`,
@@ -56,7 +56,7 @@ export const createGrowth = (growth) => {
 }
 
 export const updateGrowth = (growth, growthId) => {
-    return fetch(`http://localhost:8000/growth/${growthId}`, {
+    return fetch(`https://secure-life.herokuapp.com/growth/${growthId}`, {
         method: "PUT",
         headers: {
             "Authorization": `Token ${localStorage.getItem("sl_token")}`,
@@ -67,7 +67,7 @@ export const updateGrowth = (growth, growthId) => {
 }
 
 export const deleteGrowth = (id) => {
-    return fetch(`http://localhost:8000/growth/${id}`, {
+    return fetch(`https://secure-life.herokuapp.com/growth/${id}`, {
         method: "DELETE",
         headers:{
             "Authorization": `Token ${localStorage.getItem("sl_token")}`
@@ -76,7 +76,7 @@ export const deleteGrowth = (id) => {
 }
 
 export const deleteGrowthImage = (id) => {
-    return fetch(`http://localhost:8000/growthimages/${id}`, {
+    return fetch(`https://secure-life.herokuapp.com/growthimages/${id}`, {
         method: "DELETE",
         headers:{
             "Authorization": `Token ${localStorage.getItem("sl_token")}`
@@ -85,7 +85,7 @@ export const deleteGrowthImage = (id) => {
 }
 
 export const uploadGrowthImage = (image) => {
-    return fetch("http://localhost:8000/growthimages", {
+    return fetch("https://secure-life.herokuapp.com/growthimages", {
         method: "POST",
         headers: {
             "Authorization": `Token ${localStorage.getItem("sl_token")}`,
@@ -96,7 +96,7 @@ export const uploadGrowthImage = (image) => {
 }
 
 export const getGrowthImages = (growthId) => {
-    return fetch(`http://localhost:8000/growthimages?growthId=${growthId}`, {
+    return fetch(`https://secure-life.herokuapp.com/growthimages?growthId=${growthId}`, {
         headers: {
             "Authorization": `Token ${localStorage.getItem("sl_token")}`
         }

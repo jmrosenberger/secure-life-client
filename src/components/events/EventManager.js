@@ -1,5 +1,5 @@
 export const getEvents = () => {
-    return fetch("http://localhost:8000/events", {
+    return fetch("https://secure-life.herokuapp.com/events", {
         headers:{
             "Authorization": `Token ${localStorage.getItem("sl_token")}`
         }
@@ -8,7 +8,7 @@ export const getEvents = () => {
 }
 
 export const getEvent = (eventId) => {
-    return fetch(`http://localhost:8000/events/${eventId}`, {
+    return fetch(`https://secure-life.herokuapp.com/events/${eventId}`, {
         headers:{
             "Authorization": `Token ${localStorage.getItem("sl_token")}`,
         }
@@ -17,7 +17,7 @@ export const getEvent = (eventId) => {
 }
 
 export const createEvent = (event) => {
-    return fetch("http://localhost:8000/events", {
+    return fetch("https://secure-life.herokuapp.com/events", {
         method: "POST",
         headers:{
             "Authorization": `Token ${localStorage.getItem("sl_token")}`,
@@ -29,7 +29,7 @@ export const createEvent = (event) => {
 }
 
 export const updateEvent = (event, eventId) => {
-    return fetch(`http://localhost:8000/events/${eventId}`, {
+    return fetch(`https://secure-life.herokuapp.com/events/${eventId}`, {
         method: "PUT",
         headers: {
             "Authorization": `Token ${localStorage.getItem("sl_token")}`,
@@ -40,7 +40,7 @@ export const updateEvent = (event, eventId) => {
 }
 
 export const deleteEvent = (id) => {
-    return fetch(`http://localhost:8000/events/${id}`, {
+    return fetch(`https://secure-life.herokuapp.com/events/${id}`, {
         method: "DELETE",
         headers:{
             "Authorization": `Token ${localStorage.getItem("sl_token")}`
@@ -49,7 +49,7 @@ export const deleteEvent = (id) => {
 }
 
 export const deleteEventImage = (id) => {
-    return fetch(`http://localhost:8000/eventimages/${id}`, {
+    return fetch(`https://secure-life.herokuapp.com/eventimages/${id}`, {
         method: "DELETE",
         headers:{
             "Authorization": `Token ${localStorage.getItem("sl_token")}`
@@ -58,7 +58,7 @@ export const deleteEventImage = (id) => {
 }
 
 export const uploadEventImage = (image) => {
-    return fetch("http://localhost:8000/eventimages", {
+    return fetch("https://secure-life.herokuapp.com/eventimages", {
         method: "POST",
         headers: {
             "Authorization": `Token ${localStorage.getItem("sl_token")}`,
@@ -69,7 +69,7 @@ export const uploadEventImage = (image) => {
 }
 
 export const getEventImages = (eventId) => {
-    return fetch(`http://localhost:8000/eventimages?eventId=${eventId}`, {
+    return fetch(`https://secure-life.herokuapp.com/eventimages?eventId=${eventId}`, {
         headers: {
             "Authorization": `Token ${localStorage.getItem("sl_token")}`
         }

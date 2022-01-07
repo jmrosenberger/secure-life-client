@@ -1,5 +1,5 @@
 export const getLocations = () => {
-    return fetch("http://localhost:8000/locations", {
+    return fetch("https://secure-life.herokuapp.com/locations", {
         headers:{
             "Authorization": `Token ${localStorage.getItem("sl_token")}`
         }
@@ -8,7 +8,7 @@ export const getLocations = () => {
 }
 
 export const getLocation = (locationId) => {
-    return fetch(`http://localhost:8000/locations/${locationId}`, {
+    return fetch(`https://secure-life.herokuapp.com/locations/${locationId}`, {
         headers:{
             "Authorization": `Token ${localStorage.getItem("sl_token")}`,
         }
@@ -17,7 +17,7 @@ export const getLocation = (locationId) => {
 }
 
 export const createLocation = (location) => {
-    return fetch("http://localhost:8000/locations", {
+    return fetch("https://secure-life.herokuapp.com/locations", {
         method: "POST",
         headers:{
             "Authorization": `Token ${localStorage.getItem("sl_token")}`,
@@ -29,7 +29,7 @@ export const createLocation = (location) => {
 }
 
 export const updateLocation = (location, locationId) => {
-    return fetch(`http://localhost:8000/locations/${locationId}`, {
+    return fetch(`https://secure-life.herokuapp.com/locations/${locationId}`, {
         method: "PUT",
         headers: {
             "Authorization": `Token ${localStorage.getItem("sl_token")}`,
@@ -40,7 +40,7 @@ export const updateLocation = (location, locationId) => {
 }
 
 // export const getLocationTypes = () => {
-//     return fetch("http://localhost:8000/locationtypes", { 
+//     return fetch("https://secure-life.herokuapp.com/locationtypes", { 
 //         headers:{
 //             "Authorization": `Token ${localStorage.getItem("sl_token")}`
 //         }
@@ -49,7 +49,7 @@ export const updateLocation = (location, locationId) => {
 // }
 
 export const deleteLocation = (id) => {
-    return fetch(`http://localhost:8000/locations/${id}`, {
+    return fetch(`https://secure-life.herokuapp.com/locations/${id}`, {
         method: "DELETE",
         headers:{
             "Authorization": `Token ${localStorage.getItem("sl_token")}`
