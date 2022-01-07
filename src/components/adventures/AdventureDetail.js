@@ -69,8 +69,8 @@ export const AdventureDetail = () => {
 
     const deleteImage = (imageId) => {
         deleteAdventureImage(imageId)
-            .then(setTimeout(() => history.push({ pathname: `/adventures/details/${adventureId}` }), 50))
-            .then(setTimeout(() => getImages(), 200))
+            .then(setTimeout(() => history.push({ pathname: `/adventures/details/${adventureId}` }), 200))
+            .then(setTimeout(() => getImages(), 350))
     }
 
     const confirmDeleteImage = (id) => {

@@ -57,8 +57,8 @@ export const EventDetail = () => {
 
     const deleteImage = (imageId) => {
         deleteEventImage(imageId)
-            .then(setTimeout(() => history.push({ pathname: `/events/details/${eventId}` }), 50))
-            .then(setTimeout(() => getImages(), 200))
+            .then(setTimeout(() => history.push({ pathname: `/events/details/${eventId}` }), 200))
+            .then(setTimeout(() => getImages(), 350))
     }
 
     const confirmDeleteImage = (id) => {
