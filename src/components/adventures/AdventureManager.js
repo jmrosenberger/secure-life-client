@@ -1,5 +1,5 @@
 export const getAdventures = () => {
-    return fetch("http://localhost:8000/adventures", {
+    return fetch("https://secure-life.herokuapp.com/adventures", {
         headers:{
             "Authorization": `Token ${localStorage.getItem("sl_token")}`
         }
@@ -8,7 +8,7 @@ export const getAdventures = () => {
 }
 
 export const getAdventure = (adventureId) => {
-    return fetch(`http://localhost:8000/adventures/${adventureId}`, {
+    return fetch(`https://secure-life.herokuapp.com/adventures/${adventureId}`, {
         headers:{
             "Authorization": `Token ${localStorage.getItem("sl_token")}`,
         }
@@ -17,7 +17,7 @@ export const getAdventure = (adventureId) => {
 }
 
 export const createAdventure = (adventure) => {
-    return fetch("http://localhost:8000/adventures", {
+    return fetch("https://secure-life.herokuapp.com/adventures", {
         method: "POST",
         headers:{
             "Authorization": `Token ${localStorage.getItem("sl_token")}`,
@@ -29,7 +29,7 @@ export const createAdventure = (adventure) => {
 }
 
 export const updateAdventure = (adventure, adventureId) => {
-    return fetch(`http://localhost:8000/adventures/${adventureId}`, {
+    return fetch(`https://secure-life.herokuapp.com/adventures/${adventureId}`, {
         method: "PUT",
         headers: {
             "Authorization": `Token ${localStorage.getItem("sl_token")}`,
@@ -40,7 +40,7 @@ export const updateAdventure = (adventure, adventureId) => {
 }
 
 export const deleteAdventure = (id) => {
-    return fetch(`http://localhost:8000/adventures/${id}`, {
+    return fetch(`https://secure-life.herokuapp.com/adventures/${id}`, {
         method: "DELETE",
         headers:{
             "Authorization": `Token ${localStorage.getItem("sl_token")}`
@@ -49,7 +49,7 @@ export const deleteAdventure = (id) => {
 }
 
 export const deleteAdventureImage = (id) => {
-    return fetch(`http://localhost:8000/images/${id}`, {
+    return fetch(`https://secure-life.herokuapp.com/images/${id}`, {
         method: "DELETE",
         headers:{
             "Authorization": `Token ${localStorage.getItem("sl_token")}`
@@ -58,7 +58,7 @@ export const deleteAdventureImage = (id) => {
 }
 
 export const uploadAdventureImage = (image) => {
-    return fetch("http://localhost:8000/images", {
+    return fetch("https://secure-life.herokuapp.com/images", {
         method: "POST",
         headers: {
             "Authorization": `Token ${localStorage.getItem("sl_token")}`,
@@ -69,7 +69,7 @@ export const uploadAdventureImage = (image) => {
 }
 
 export const getAdventureImages = (adventureId) => {
-    return fetch(`http://localhost:8000/images?adventureId=${adventureId}`, {
+    return fetch(`https://secure-life.herokuapp.com/images?adventureId=${adventureId}`, {
         headers: {
             "Authorization": `Token ${localStorage.getItem("sl_token")}`
         }
@@ -78,7 +78,7 @@ export const getAdventureImages = (adventureId) => {
 }
 
 export const getImages = () => {
-    return fetch('http://localhost:8000/images', {
+    return fetch('https://secure-life.herokuapp.com/images', {
         headers: {
             "Authorization": `Token ${localStorage.getItem("sl_token")}`
         }

@@ -24,8 +24,8 @@ export const NavBar = () => {
                         <Nav.Link href="/events">Events</Nav.Link>
                         <NavDropdown title={`Welcome ${localStorage.getItem("sl_username")}`} id="nav-dropdown" 
                         active className="basic-nav-dropdown">
-                            <NavDropdown.Item href="/profile">My Profile</NavDropdown.Item>
-                            <NavDropdown.Divider />
+                            {/* <NavDropdown.Item href="/profile">My Profile</NavDropdown.Item> */}
+                            {/* <NavDropdown.Divider /> */}
                             <NavDropdown.Item href="/humans">My People</NavDropdown.Item>
                             <NavDropdown.Item href="/locations">My Locations</NavDropdown.Item>
                             <NavDropdown.Divider />

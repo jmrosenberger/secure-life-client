@@ -1,5 +1,5 @@
 export const getHumans = () => {
-    return fetch("http://localhost:8000/humans", {
+    return fetch("https://secure-life.herokuapp.com/humans", {
         headers:{
             "Authorization": `Token ${localStorage.getItem("sl_token")}`
         }
@@ -8,7 +8,7 @@ export const getHumans = () => {
 }
 
 export const getHuman = (humanId) => {
-    return fetch(`http://localhost:8000/humans/${humanId}`, {
+    return fetch(`https://secure-life.herokuapp.com/humans/${humanId}`, {
         headers:{
             "Authorization": `Token ${localStorage.getItem("sl_token")}`,
         }
@@ -17,7 +17,7 @@ export const getHuman = (humanId) => {
 }
 
 export const createHuman = (human) => {
-    return fetch("http://localhost:8000/humans", {
+    return fetch("https://secure-life.herokuapp.com/humans", {
         method: "POST",
         headers:{
             "Authorization": `Token ${localStorage.getItem("sl_token")}`,
@@ -29,7 +29,7 @@ export const createHuman = (human) => {
 }
 
 export const updateHuman = (human, humanId) => {
-    return fetch(`http://localhost:8000/humans/${humanId}`, {
+    return fetch(`https://secure-life.herokuapp.com/humans/${humanId}`, {
         method: "PUT",
         headers: {
             "Authorization": `Token ${localStorage.getItem("sl_token")}`,
@@ -40,7 +40,7 @@ export const updateHuman = (human, humanId) => {
 }
 
 export const deleteHuman = (id) => {
-    return fetch(`http://localhost:8000/humans/${id}`, {
+    return fetch(`https://secure-life.herokuapp.com/humans/${id}`, {
         method: "DELETE",
         headers:{
             "Authorization": `Token ${localStorage.getItem("sl_token")}`
@@ -49,7 +49,7 @@ export const deleteHuman = (id) => {
 }
 
 export const deleteHumanImage = (id) => {
-    return fetch(`http://localhost:8000/humanimages/${id}`, {
+    return fetch(`https://secure-life.herokuapp.com/humanimages/${id}`, {
         method: "DELETE",
         headers:{
             "Authorization": `Token ${localStorage.getItem("sl_token")}`
@@ -58,7 +58,7 @@ export const deleteHumanImage = (id) => {
 }
 
 export const uploadHumanImage = (image) => {
-    return fetch("http://localhost:8000/humanimages", {
+    return fetch("https://secure-life.herokuapp.com/humanimages", {
         method: "POST",
         headers: {
             "Authorization": `Token ${localStorage.getItem("sl_token")}`,
@@ -69,7 +69,7 @@ export const uploadHumanImage = (image) => {
 }
 
 export const getHumanImages = (humanId) => {
-    return fetch(`http://localhost:8000/humanimages?humanId=${humanId}`, {
+    return fetch(`https://secure-life.herokuapp.com/humanimages?humanId=${humanId}`, {
         headers: {
             "Authorization": `Token ${localStorage.getItem("sl_token")}`
         }
