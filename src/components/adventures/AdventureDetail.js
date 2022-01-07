@@ -7,11 +7,7 @@ import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
 import Card from 'react-bootstrap/Card'
 import Image from "react-bootstrap/Image"
-// import FormControl from '@mui/material/FormControl'
-// import InputLabel from '@mui/material/InputLabel'
 import Box from '@mui/material/Box'
-// import MenuItem from '@mui/material/MenuItem'
-// import Select from '@mui/material/Select'
 // import Typography from '@mui/material/Typography'
 import ButtonGroup from '@mui/material/ButtonGroup'
 import Typography from '@mui/material/Typography'
@@ -19,7 +15,6 @@ import Button from '@mui/material/Button'
 import Input from '@mui/material/Input'
 // import Container from '@mui/material/Container'
 import FilledInput from '@mui/material/FilledInput'
-// import OutlinedInput from '@mui/material/OutlinedInput'
 import ImageList from '@mui/material/ImageList'
 import ImageListItem from '@mui/material/ImageListItem'
 import ImageListItemBar from '@mui/material/ImageListItemBar'
@@ -120,9 +115,11 @@ export const AdventureDetail = () => {
     }
 
     console.log(adventure)
+    console.log('hello there')
 
     return (
         <>
+        {console.log('hello there')}
             {/* <Box className="adventure__detailss"> */}
             <Container className="details__containers">
                 {/* <h2>Adventure Details</h2> */}
