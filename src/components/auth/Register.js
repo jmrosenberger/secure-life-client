@@ -36,6 +36,7 @@ export const Register = () => {
                 .then(res => {
                     if ("token" in res) {
                         localStorage.setItem("sl_token", res.token)
+                        localStorage.setItem("sl_username", username.current.value)
                         history.push("/")
                     }
                 })
