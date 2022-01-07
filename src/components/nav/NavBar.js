@@ -12,9 +12,9 @@ export const NavBar = () => {
     const history = useHistory()
 
     return (
-        <Navbar expand="sm md lg xl xxl" bg="secondary" fixed="top" className="navbar_container">
+        <Navbar expand="sm md lg xl xxl" fixed="top" className="navbar_container">
             <Container>
-                <Navbar.Brand href="/"><img rel="" src="" alt="" className="navbar__logo" /></Navbar.Brand>
+                {/* <Navbar.Brand href="/"><img rel="" src="" alt="" className="navbar__logo" /></Navbar.Brand> */}
                 <Navbar.Toggle aria-controls="navbar-nav"/>
                 <Navbar.Collapse id="navbar-nav">
                     <Nav className="me-auto">

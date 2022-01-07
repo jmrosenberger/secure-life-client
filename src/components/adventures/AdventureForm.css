@@ -7,6 +7,12 @@
     color: rgba(0, 0, 255, 0.644);
 }
 
+.header__participants {
+    padding-bottom: 2rem;
+    padding-left: 15rem;
+    color: rgba(0, 0, 255, 0.644);
+}
+
 .input__label {
     margin: 4rem;
 }
@@ -25,8 +31,16 @@
 }
 
 .button__group__participants {
-    margin-left: 4rem;
+    margin-left: 18rem;
     margin-top: 1rem;
     margin-bottom: 2rem;
     color: olivedrab;
 }
+
+.container__participants {
+    padding-left: 10rem;
+}
+
+/* .form__participants {
+    border: 2px solid green;
+} */

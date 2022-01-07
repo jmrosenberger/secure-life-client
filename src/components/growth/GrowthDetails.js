@@ -2,7 +2,18 @@ import React, { useEffect, useState } from "react"
 import { useHistory, useParams } from "react-router-dom"
 import { getGrowthImages, uploadGrowthImage, deleteGrowth, deleteGrowthImage, getGrowth } from "./GrowthManager.js"
 import { confirmAlert } from "react-confirm-alert"
+import Container from 'react-bootstrap/Container'
+import Card from 'react-bootstrap/Card'
+import Image from "react-bootstrap/Image"
+import ButtonGroup from '@mui/material/ButtonGroup'
+import Typography from '@mui/material/Typography'
+import Button from '@mui/material/Button'
+import FilledInput from '@mui/material/FilledInput'
+import ImageList from '@mui/material/ImageList'
+import ImageListItem from '@mui/material/ImageListItem'
+import ImageListItemBar from '@mui/material/ImageListItemBar'
 import "../react-confirm-alert.css"
+import kids from "../images/growing_kids.jpg"
 import "./GrowthDetail.css"
 
 export const GrowthDetail = () => {
@@ -97,51 +108,57 @@ export const GrowthDetail = () => {
     console.log(growth)
     return (
         <>
-            <div className="growth__details">
-                <h2>Growth Progress </h2>
-                <section key={`growth--${growth?.id}`} className="growth--details">
-                    <div className="growth__human growth__item"><h4>{growth?.human?.name}</h4></div>
-                    <div className="growth__age growth__item">Age: {growth?.age} months</div>
-                    <div className="growth__height growth__item">Height: {growth?.height} inches</div>
-                    <div className="growth__weight growth__item">Weight: {growth?.weight} lbs</div>
-                    <div className="growth__length growth__item">Length: {growth?.length} inches</div>
-                    <div className="growth__date growth__item">Date: {growth?.date}</div>
-                    <div className="growth__notes growth__item">Notes: {growth?.notes}</div>
-                    <div className="btn__group">
-                        <button className="btn__edit"
-                            onClick={() => {
-                                history.push({ pathname: `/growth/edit/${growth.id}` })
-                            }}>Edit Entry</button>
-                        <button className="btn__delete"
-                            onClick={() => {
-                                confirmDelete(growth.id)
-                            }}>Delete Entry</button>
-                        <button className="btn__return"
-                            onClick={() => {
-                                history.push({ pathname: `/growth` })
-                            }}>Return to Events</button>
-                    </div>
-                    <div className="growth__images">
-                        <h3>Pictures of Growth</h3>
-                        <input type="file" id="growth_image" onChange={createGrowthImageString} />
-                        <input type="hidden" name="growth_id" value={growth.id} />
-                        <button onClick={createImage}>Upload</button>
-                        <div className="growthImages">
-                            {growthImages?.map(img => {
-                                return <>
-                                    <div className="growthImage">
-                                        <button className="btn__deleteImage"
-                                            onClick={() => {
-                                                confirmDeleteImage(img.id)
-                                            }}>x</button>
-                                        <img src={img?.action_pic} width="100%" alt={`growth-${img?.action_pic}`} />
-                                    </div>
-                                </>
-                            })}
-                        </div>
-                    </div>
-                </section>
-            </div>
+            <Container className="growth__detail">
+                <Container>
+                    <Typography variant="h2" align="center" className="header__growth">Growth Progress </Typography>
+                    <Card key={`growth--${growth?.id}`} className="growth--detailss bg-light container__card">
+                        <Card.Body>
+                            <Card.Title className="growth__human growth__item">
+                                <Typography variant="h4" className="growth__header">{growth?.human?.name}</Typography>
+                            </Card.Title>
+                            <Card.Text className="growth__ages growth__items"><strong>Age:</strong> {growth?.age} months</Card.Text>
+                            <Card.Text className="growth__heights growth__items"><strong>Height:</strong> {growth?.height} inches</Card.Text>
+                            <Card.Text className="growth__weights growth__items"><strong>Weight:</strong> {growth?.weight} lbs</Card.Text>
+                            <Card.Text className="growth__lengths growth__items"><strong>Length:</strong> {growth?.length} inches</Card.Text>
+                            <Card.Text className="growth__dates growth__items"><strong>Date:</strong> {growth?.date}</Card.Text>
+                            <Card.Text className="growth__notess growth__items"><strong>Notes:</strong> {growth?.notes}</Card.Text>
+                            <ButtonGroup className="btn__group">
+                                <Button className="btn__edits"
+                                    onClick={() => {
+                                        history.push({ pathname: `/growth/edit/${growth.id}` })
+                                    }}>Edit Entry</Button>
+                                <Button className="btn__deletes"
+                                    onClick={() => {
+                                        confirmDelete(growth.id)
+                                    }}>Delete Entry</Button>
+                                <Button className="btn__returns"
+                                    onClick={() => {
+                                        history.push({ pathname: `/growth` })
+                                    }}>Return to Events</Button>
+                            </ButtonGroup>
+                        </Card.Body>
+                    </Card>
+                </Container>
+                <Container className="container__images">
+                    <Typography variant="h4" className="header__growth" align="center">Pictures of Growth</Typography>
+                    <ImageList variant="masonry" cols={3} gap={8} className="images__list">
+                        <FilledInput type="file" id="growth_images" onChange={createGrowthImageString} />
+                        <FilledInput type="hidden" name="growth_ids" value={growth.id} />
+                        <Button onClick={createImage}>Upload</Button>
+                        {growthImages?.map(img => {
+                            return <>
+                                <ImageListItem key={img.id} className="growthImages">
+                                    <Button className="btn__deleteImages"
+                                        onClick={() => {
+                                            confirmDeleteImage(img.id)
+                                        }}>x</Button>
+                                    <Image src={img?.action_pic} fluid width="100%" alt={`growth-${img?.action_pic}`} />
+                                </ImageListItem>
+                            </>
+                        }).reverse()}
+                    </ImageList>
+                </Container>
+            </Container>
         </>
     )
 }

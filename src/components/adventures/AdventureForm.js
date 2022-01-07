@@ -136,8 +136,8 @@ export const AdventureForm = () => {
                     </FormControl>
                 </Container>
                 <Container className="container__participants">
-                    <FormControl margin="normal" className="form-groups">
-                        <Typography variant="h5" align='center' className="header__adventureForm">Select Participants</Typography>
+                    <FormControl margin="normal" className="form__participants">
+                        <Typography variant="h5" align='center' className="header__participants">Select Participants</Typography>
                         <ButtonGroup fullWidth="true" className="button__group__participants">
                             <ToggleButtonGroup
                                 type='checkbox'
