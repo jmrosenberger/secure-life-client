@@ -137,7 +137,7 @@ export const EventDetail = () => {
                 <Typography variant="h4" className="header__event" align="center">Event Images</Typography>
                 <ImageList variant="masonry" cols={3} gap={8} className="images__list">
                     <FilledInput type="file" id="event_image" onChange={createEventImageString} />
-                    <FilledInput type="hidden" name="event_id" value={event.id} />
+                    <FilledInput type="hidden" name="event_id" />
                     <Button onClick={createImage}>Upload</Button>
                         {eventImages?.map(img => {
                             return <>

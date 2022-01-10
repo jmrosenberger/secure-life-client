@@ -134,7 +134,7 @@ export const GrowthDetail = () => {
                                 <Button className="btn__returns"
                                     onClick={() => {
                                         history.push({ pathname: `/growth` })
-                                    }}>Return to Events</Button>
+                                    }}>Return to Entries</Button>
                             </ButtonGroup>
                         </Card.Body>
                     </Card>
@@ -143,7 +143,7 @@ export const GrowthDetail = () => {
                     <Typography variant="h4" className="header__growth" align="center">Pictures of Growth</Typography>
                     <ImageList variant="masonry" cols={3} gap={8} className="images__list">
                         <FilledInput type="file" id="growth_images" onChange={createGrowthImageString} />
-                        <FilledInput type="hidden" name="growth_ids" value={growth.id} />
+                        <FilledInput type="hidden" name="growth_ids" />
                         <Button onClick={createImage}>Upload</Button>
                         {growthImages?.map(img => {
                             return <>

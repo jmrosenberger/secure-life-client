@@ -1,0 +1,14 @@
+.container__card {
+    padding-top: 4rem;
+    padding-bottom: 4rem;
+    color: olivedrab;
+}
+
+.location__park {
+    padding-bottom: 2rem;
+}
+
+.location__city {
+    padding-bottom: 2rem;
+}
+

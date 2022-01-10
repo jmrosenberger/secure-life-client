@@ -2,6 +2,15 @@ import React, { useEffect, useState } from "react"
 import { Link, useHistory, useParams } from "react-router-dom"
 import { getLocations, deleteLocation, getLocation } from "./LocationManager.js"
 import { confirmAlert } from "react-confirm-alert"
+import Container from 'react-bootstrap/Container'
+import Row from 'react-bootstrap/Row'
+import Col from 'react-bootstrap/Col'
+import Card from 'react-bootstrap/Card'
+import ButtonGroup from '@mui/material/ButtonGroup'
+import Typography from '@mui/material/Typography'
+import Button from '@mui/material/Button'
+import Input from '@mui/material/Input'
+import "./LocationDetail.css"
 import "../react-confirm-alert.css"
 
 
@@ -44,20 +53,30 @@ export const LocationDetail = () => {
 
     return (
         <>
-            <h2>Location Details</h2>
-            <section key={`location--${location.id}`} className="location">
-                <div className="location__park">Name of Park: {location.park}</div>
-                <div className="location__city">City: {location.city}</div>
-                <div className="location__state">State: {location?.state}</div>
-                <button className="btn__edit"
-                    onClick={() => {
-                        history.push({ pathname: `/locations/edit/${location.id}`})
-                    }}>Edit Location</button>
-                <button className="btn__delete"
-                    onClick={() => {
-                        confirmDelete(location.id)
-                    }}>Remove Location</button>
-            </section>
+            <Container key={`location--${location.id}`} className="location__detail">
+                <Row className="justify-content-md-center">
+                    <Card key={`location--${location?.id}`} body className="text-center container__card">
+                        <Card.Body>
+                            <Card.Title className="location__park">{location.park}</Card.Title>
+                            <Card.Text className="location__city">{location.city}, {location.state}</Card.Text>
+                            <ButtonGroup>
+                            <Button className="btn__edit"
+                                onClick={() => {
+                                    history.push({ pathname: `/locations/edit/${location.id}` })
+                                }}>Edit Location</Button>
+                            <Button className="btn__delete"
+                                onClick={() => {
+                                    confirmDelete(location.id)
+                                }}>Remove Location</Button>
+                            <Button className="btn__return"
+                                onClick={() => {
+                                    history.push({ pathname: `/locations` })
+                                }}>Return To Locations</Button>
+                                </ButtonGroup>
+                        </Card.Body>
+                    </Card>
+                </Row>
+            </Container>
 
 
         </>

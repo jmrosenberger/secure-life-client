@@ -107,7 +107,7 @@ export const PeopleDetail = () => {
     return (
         <>
             <Container className="human__details">
-                <Typography variant="h2" className="header__human" align="center">Personal Details</Typography>
+                {/* <Typography variant="h2" className="header__human" align="center">Personal Details</Typography> */}
                 <Card key={`human--${human?.id}`} className="human--details bg-light container__card">
                     <Card.Body>
                         <Card.Title className="human__name human__item">

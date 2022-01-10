@@ -54,7 +54,7 @@ export const GrowthForm = () => {
             <fieldset>
                 <div className="form-group">
                     <label htmlFor="name">Name: </label>
-                    <select name="human" placeholder="Select Name" defaultValue={0} className="form-control"
+                    <select name="human" placeholder="Select Name" autoFocus defaultValue={0} className="form-control"
                         value={currentGrowth?.human?.name}
                         onChange={changeGrowthState}>
                         <option value="0" disabled>Select Name</option>
@@ -70,7 +70,7 @@ export const GrowthForm = () => {
             <fieldset>
                 <div className="form-group">
                     <label htmlFor="age">Age in Months: </label>
-                    <input type="number" name="age" required autoFocus className="form-control"
+                    <input type="number" name="age" required className="form-control"
                         value={currentGrowth.age}
                         onChange={changeGrowthState}
                     />
@@ -79,7 +79,7 @@ export const GrowthForm = () => {
             <fieldset>
                 <div className="form-group">
                     <label htmlFor="height">Height in inches: </label>
-                    <input type="number" name="height" required autoFocus className="form-control"
+                    <input type="number" name="height" required className="form-control"
                         value={currentGrowth.height}
                         onChange={changeGrowthState}
                     />
@@ -88,7 +88,7 @@ export const GrowthForm = () => {
             <fieldset>
                 <div className="form-group">
                     <label htmlFor="weight">Weight in lbs: </label>
-                    <input type="number" name="weight" required autoFocus className="form-control"
+                    <input type="number" name="weight" required className="form-control"
                         value={currentGrowth.weight}
                         onChange={changeGrowthState}
                     />
@@ -97,7 +97,7 @@ export const GrowthForm = () => {
             <fieldset>
                 <div className="form-group">
                     <label htmlFor="length">Length in inches: </label>
-                    <input type="number" name="length" required autoFocus className="form-control"
+                    <input type="number" name="length" required className="form-control"
                         value={currentGrowth.length}
                         onChange={changeGrowthState}
                     />

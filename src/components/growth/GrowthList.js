@@ -77,7 +77,7 @@ export const GrowthList = (props) => {
                         {
                             humans.map(
                                 (human) => {
-                                    return <MenuItem name={human.id} value={human?.id}>{human?.name}</MenuItem>
+                                    return <MenuItem key={human.id} name={human.id} value={human?.id}>{human?.name}</MenuItem>
                                 })
                         }
                     </Select>

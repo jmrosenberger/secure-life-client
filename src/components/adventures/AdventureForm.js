@@ -84,15 +84,13 @@ export const AdventureForm = () => {
     currentAdventure.location = location
 
 
-    // console.log(participants)
-
     return (
         <Box component="form" className="box__adventureForm">
-            <Container fluid className="adventureForm">
+            <Container fluid="true" className="adventureForm">
                 <Typography variant="h4" align="center" className="header__adventureForm">Adventure Form</Typography>
-                <Container fluid className="input__group">
-                    <FormControl margin="normal" variant="filled" className="controls__adventureForm title__adventureForm">
-                        <InputLabel htmlFor="title" className="input__label label__adventureForm title__label">Title: </InputLabel>
+                <Container fluid="true" className="input__group">
+                    <FormControl margin="none" value={currentAdventure.title} variant="filled" className="controls__adventureForm title__adventureForm">
+                        <InputLabel htmlFor="title" shrink className="input__label label__adventureForm title__label">Title: </InputLabel>
                         <FilledInput
                             type="text"
                             name="title"
@@ -103,7 +101,7 @@ export const AdventureForm = () => {
                             onChange={changeAdventureState}
                         />
                     </FormControl>
-                    <FormControl margin="normal" variant="filled" className="form-groups">
+                    <FormControl margin="none" value={currentAdventure.date} variant="filled" className="form-groups">
                         <InputLabel htmlFor="date" className="input__label label__adventureForm"></InputLabel>
                         <FilledInput
                             type="date"
@@ -115,8 +113,8 @@ export const AdventureForm = () => {
                             id="date"
                         />
                     </FormControl>
-                    <FormControl margin="normal" variant="filled" className="form-groups">
-                        <InputLabel id="demo-simple-select-label" className="input__label label__adventureForm label__select" htmlFor="location">Location: </InputLabel>
+                    <FormControl margin="none" value={location.id} variant="filled" className="form-groups">
+                        <InputLabel id="demo-simple-select-label" shrink className="input__label label__adventureForm label__select" htmlFor="location">Location: </InputLabel>
                         <Select
                             name="location"
                             autoWidth
@@ -129,16 +127,16 @@ export const AdventureForm = () => {
                             {
                                 locations.map(
                                     (location) => {
-                                        return <MenuItem name={location.id} value={location.id}>{location.park} - {location.city}, {location.state}</MenuItem>
+                                        return <MenuItem key={location.id} name={location.id} value={location.id}>{location.park} - {location.city}, {location.state}</MenuItem>
                                     })
                             }
                         </Select>
                     </FormControl>
                 </Container>
                 <Container className="container__participants">
-                    <FormControl margin="normal" className="form__participants">
+                    <FormControl margin="none" value={participants} className="form__participants">
                         <Typography variant="h5" align='center' className="header__participants">Select Participants</Typography>
-                        <ButtonGroup fullWidth="true" className="button__group__participants">
+                        <ButtonGroup className="button__group__participants">
                             <ToggleButtonGroup
                                 type='checkbox'
                                 value={participants}
@@ -158,8 +156,8 @@ export const AdventureForm = () => {
                         </ButtonGroup>
                     </FormControl>
                 </Container>
-                <FormControl margin="normal" fullWidth className="form-groups">
-                    <InputLabel htmlFor="component-outlined" className="input__label label__adventureForm title__label">Notes: </InputLabel>
+                <FormControl margin="none" value={currentAdventure.description} fullWidth className="form-groups">
+                    <InputLabel htmlFor="component-outlined" shrink className="input__label label__adventureForm title__label">Notes: </InputLabel>
                     <OutlinedInput
                         id="component-outlined"
                         name="description"

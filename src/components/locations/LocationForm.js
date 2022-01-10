@@ -43,7 +43,7 @@ export const LocationForm = () => {
                 <div className="form-group">
                     <label htmlFor="city">City: </label>
                     <input type="text" name="city" required autoFocus className="form-control"
-                        value={currentLocation?.city}
+                        value={currentLocation.city}
                         onChange={changeLocationState}
                     />
                 </div>
@@ -51,8 +51,8 @@ export const LocationForm = () => {
             <fieldset>
                 <div className="form-group">
                     <label htmlFor="state">State: </label>
-                    <input type="text" name="state" required autoFocus className="form-control"
-                        value={currentLocation?.state}
+                    <input type="text" name="state" required className="form-control"
+                        value={currentLocation.state}
                         onChange={changeLocationState}
                     />
                 </div>
@@ -60,8 +60,8 @@ export const LocationForm = () => {
             <fieldset>
                 <div className="form-group">
                     <label htmlFor="park">Name of National Park: </label>
-                    <input type="text" name="park" required autoFocus className="form-control"
-                        value={currentLocation?.park}
+                    <input type="text" name="park" required className="form-control"
+                        value={currentLocation.park}
                         onChange={changeLocationState}
                     />
                 </div>
