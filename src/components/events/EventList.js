@@ -43,7 +43,7 @@ export const EventList = (props) => {
                                 <Card className="card__card">
                                     <Card.Body className="card__body">
                                         <Card.Title className="event__title">{event?.title}</Card.Title>
-                                        <Card.Text className="event__date">Date: {event?.date}</Card.Text>
+                                        <Card.Text className="event__date">{event?.date}</Card.Text>
                                         <Link to={`events/details/${event.id}`}>Details</Link>
                                     </Card.Body>
                                 </Card>

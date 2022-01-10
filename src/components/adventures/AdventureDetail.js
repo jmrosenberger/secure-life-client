@@ -17,10 +17,9 @@ import Input from '@mui/material/Input'
 import FilledInput from '@mui/material/FilledInput'
 import ImageList from '@mui/material/ImageList'
 import ImageListItem from '@mui/material/ImageListItem'
-import ImageListItemBar from '@mui/material/ImageListItemBar'
 import "../react-confirm-alert.css"
 import "./AdventureDetail.css"
-import man from "../images/man-on-watch.png" 
+import man from "../images/man-on-watch.png"
 
 
 console.log(man)
@@ -114,53 +113,45 @@ export const AdventureDetail = () => {
             .then(getImages)
     }
 
-    console.log(adventure)
-    console.log('hello there')
 
     return (
         <>
-        {console.log('hello there')}
-            {/* <Box className="adventure__detailss"> */}
             <Container className="details__containers">
-                {/* <h2>Adventure Details</h2> */}
-                <Card key={`adventure--${adventure?.id}`} text="primary" body className="bg-light text-blue container__card">
+            <Row className="justify-content-md-center">
+                <Card key={`adventure--${adventure?.id}`} text="primary" body className="bg-light text-blue text-center container__card">
                     <Card.Body>
-                        {/* <Card.ImgOverlay> */}
-                            {/* <Card.Img src={man} alt="man" className="card__image" /> */}
-                            <Card.Title className="adventure__titles"><h2>{adventure?.title}</h2></Card.Title>
-                            <Card.Text className="adventure__dates">Date: {adventure?.date}</Card.Text>
-                            <Card.Text className="adventure__locations">Location: {adventure?.location?.park} - {adventure?.location?.city}, {adventure?.location?.state}</Card.Text>
-                            <Card.Text className="adventure__participantss">Participants: {
-                                adventure?.participants?.map(participant => {
-                                    return participant.name
-                                }).join(", ")}</Card.Text>
-                            <Card.Text className="adventure__descriptions">Notes: {adventure?.description}</Card.Text>
-                            <Card.Text className="btn__groups">
-                                <ButtonGroup>
-                                    <Button className="btn__edits"
-                                        onClick={() => {
-                                            history.push({ pathname: `/adventures/edit/${adventure.id}` })
-                                        }}>Edit Adventure</Button>
-                                    <Button className="btn__deletes"
-                                        onClick={() => {
-                                            confirmDelete(adventure.id)
-                                        }}>Delete Adventure</Button>
-                                    <Button className="btn__returns"
-                                        onClick={() => {
-                                            history.push({ pathname: `/adventures` })
-                                        }}>Return to Adventures</Button>
-                                </ButtonGroup>
-                            </Card.Text>
-                        {/* </Card.ImgOverlay> */}
+                        <Card.Title className="adventure__titles"><h2>{adventure?.title}</h2></Card.Title>
+                        <Card.Text className="adventure__dates">Date: {adventure?.date}</Card.Text>
+                        <Card.Text className="adventure__locations">Location: {adventure?.location?.park} - {adventure?.location?.city}, {adventure?.location?.state}</Card.Text>
+                        <Card.Text className="adventure__participantss">Participants: {
+                            adventure?.participants?.map(participant => {
+                                return participant.name
+                            }).join(", ")}</Card.Text>
+                        <Card.Text className="adventure__descriptions">Notes: {adventure?.description}</Card.Text>
+                        <ButtonGroup>
+                            <Button className="btn__edits"
+                                onClick={() => {
+                                    history.push({ pathname: `/adventures/edit/${adventure.id}` })
+                                }}>Edit Adventure</Button>
+                            <Button className="btn__deletes"
+                                onClick={() => {
+                                    confirmDelete(adventure.id)
+                                }}>Delete Adventure</Button>
+                            <Button className="btn__returns"
+                                onClick={() => {
+                                    history.push({ pathname: `/adventures` })
+                                }}>Return to Adventures</Button>
+                        </ButtonGroup>
                     </Card.Body>
                 </Card>
+                </Row>
             </Container>
             <Container fluid className="images__adventure">
                 <Typography align="center" className="header__images" variant="h3">Adventure Images</Typography>
+                <FilledInput type="file" id="adventure_images" onChange={createAdventureImageString} />
+                <FilledInput type="hidden" name="adventure_id" />
+                <Button onClick={createImage}>Upload</Button>
                 <ImageList variant="masonry" cols={3} gap={8} className="images__list">
-                    <FilledInput type="file" id="adventure_images" onChange={createAdventureImageString} />
-                    <FilledInput type="hidden" name="adventure_id" value={adventure.id} />
-                    <Button onClick={createImage}>Upload</Button>
                     {adventureImages?.map(img => {
                         return <>
                             <ImageListItem key={img.id} className="adventureImages">
@@ -174,7 +165,6 @@ export const AdventureDetail = () => {
                     }).reverse()}
                 </ImageList>
             </Container>
-            {/* </Box> */}
         </>
     )
 }

@@ -4,13 +4,13 @@
 
 .header__adventureForm {
     padding-bottom: 2rem;
-    color: rgba(0, 0, 255, 0.644);
+    color: rgba(218, 165, 32, 0.646);
 }
 
 .header__participants {
     padding-bottom: 2rem;
     padding-left: 15rem;
-    color: rgba(0, 0, 255, 0.644);
+    color: rgba(218, 165, 32, 0.646);
 }
 
 .input__label {
@@ -34,7 +34,7 @@
     margin-left: 18rem;
     margin-top: 1rem;
     margin-bottom: 2rem;
-    color: olivedrab;
+    color: rgba(106, 142, 35, 0.721);
 }
 
 .container__participants {

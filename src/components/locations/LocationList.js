@@ -59,9 +59,8 @@ export const LocationList = (props) => {
                                     return <Col key={`location--${location.id}`} className="location">
                                         <Card className="card__card">
                                             <Card.Body className="card__body">
-                                                <Card.Title className="location__park">Name of Park: {location?.park}</Card.Title>
-                                                <Card.Text className="location__city">City: {location?.city}</Card.Text>
-                                                <Card.Text className="location__state">State: {location?.state}</Card.Text>
+                                                <Card.Title className="location__park">{location?.park}</Card.Title>
+                                                <Card.Text className="location__city">{location?.city}, {location?.state}</Card.Text>
                                                 <Link to={`locations/details/${location.id}`}>Location Details</Link>
                                             </Card.Body>
                                         </Card>
@@ -83,9 +82,8 @@ export const LocationList = (props) => {
                                     return <Col key={`location--${location.id}`} className="location">
                                         <Card className="card__card">
                                             <Card.Body className="card__body">
-                                                <Card.Title className="location__park">Name of Park: {location?.park}</Card.Title>
-                                                <Card.Text className="location__city">City: {location?.city}</Card.Text>
-                                                <Card.Text className="location__state">State: {location?.state}</Card.Text>
+                                                <Card.Title className="location__park">{location?.park}</Card.Title>
+                                                <Card.Text className="location__city">{location?.city}, {location?.state}</Card.Text>
                                                 <Link to={`locations/details/${location.id}`}>Location Details</Link>
                                             </Card.Body>
                                         </Card>
